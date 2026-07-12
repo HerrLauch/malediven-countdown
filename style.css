@@ -108,6 +108,70 @@ h1{
     #countdown{
         grid-template-columns:repeat(2,1fr);
     }
+```css
+/* Sanftes Einblenden der Seite */
+.card{
+    animation: erscheinen 2s ease;
+}
+
+@keyframes erscheinen{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* Kleine romantische Herz-Bewegung */
+h1{
+    animation: herz 2.5s infinite;
+}
+
+@keyframes herz{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.03);
+    }
+}
+
+
+/* Leichter Glanz-Effekt */
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    background:rgba(255,255,255,.25);
+
+    border-radius:50%;
+
+    top:-50px;
+    right:-40px;
+
+    filter:blur(20px);
+
+}
+
+
+/* Karte als Bezugspunkt */
+.card{
+    position:relative;
+    overflow:hidden;
+}
+```
 
 }
 ```
