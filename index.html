@@ -1,0 +1,106 @@
+```html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unser Malediven Countdown 🌴</title>
+
+    <style>
+        body{
+            margin:0;
+            font-family:Arial, Helvetica, sans-serif;
+            color:white;
+            text-align:center;
+
+            background-image:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=80");
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .box{
+            background:rgba(0,0,0,0.45);
+            padding:40px;
+            border-radius:20px;
+            backdrop-filter:blur(5px);
+            max-width:700px;
+        }
+
+        h1{
+            font-size:3em;
+            margin-bottom:10px;
+        }
+
+        p{
+            font-size:1.3em;
+        }
+
+        #countdown{
+            font-size:2.3em;
+            font-weight:bold;
+            margin-top:30px;
+            line-height:1.5;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>🌴 Malediven 2026 🌴</h1>
+
+<p>
+Am <strong>05.08.2026 um 10:55 Uhr</strong> beginnt endlich unser Traumurlaub.
+</p>
+
+<p>
+14 Tage Sonne, Strand und türkisblaues Meer. ❤️
+</p>
+
+<div id="countdown"></div>
+
+</div>
+
+<script>
+
+const ziel = new Date("August 5, 2026 10:55:00").getTime();
+
+function countdown(){
+
+const jetzt = new Date().getTime();
+
+const entfernung = ziel - jetzt;
+
+const tage = Math.floor(entfernung / (1000*60*60*24));
+const stunden = Math.floor((entfernung % (1000*60*60*24)) / (1000*60*60));
+const minuten = Math.floor((entfernung % (1000*60*60)) / (1000*60));
+const sekunden = Math.floor((entfernung % (1000*60)) / 1000);
+
+document.getElementById("countdown").innerHTML =
+tage + " Tage<br>" +
+stunden + " Stunden<br>" +
+minuten + " Minuten<br>" +
+sekunden + " Sekunden";
+
+if(entfernung < 0){
+document.getElementById("countdown").innerHTML =
+"✈️ Endlich geht es los! 🌴";
+}
+
+}
+
+countdown();
+setInterval(countdown,1000);
+
+</script>
+
+</body>
+</html>
+```
