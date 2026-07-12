@@ -1,4 +1,7 @@
 ```javascript
+
+alert("JavaScript läuft!");
+
 // Zielzeit des Abflugs
 const zielDatum = new Date("August 5, 2026 10:55:00").getTime();
 
