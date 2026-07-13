@@ -333,3 +333,88 @@ section h2{
     }
 
 }
+/* ===========================
+   Kapitel Design
+=========================== */
+
+
+.chapter{
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+    font-size:.9rem;
+
+    color:#ffe7a3;
+
+    margin-bottom:15px;
+
+}
+
+
+.story h2{
+
+    font-family:'Playfair Display', serif;
+
+    font-size:3rem;
+
+    margin-bottom:10px;
+
+}
+
+
+.story h3{
+
+    font-size:1.5rem;
+
+    font-weight:400;
+
+    margin-bottom:35px;
+
+    color:#ffe7a3;
+
+}
+
+
+/* Buchseiten-Effekt */
+
+.story{
+
+    position:relative;
+
+}
+
+
+.story::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    bottom:0;
+
+    width:1px;
+
+    background:rgba(255,255,255,.15);
+
+    transform:translateX(-50%);
+
+    display:none;
+
+}
+
+
+@media(min-width:900px){
+
+    .story::before{
+
+        display:block;
+
+    }
+
+}
