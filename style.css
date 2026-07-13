@@ -386,27 +386,7 @@ section h2{
 }
 
 
-.story::before{
 
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    top:0;
-
-    bottom:0;
-
-    width:1px;
-
-    background:rgba(255,255,255,.15);
-
-    transform:translateX(-50%);
-
-    display:none;
-
-}
 
 
 @media(min-width:900px){
@@ -679,25 +659,7 @@ section h2{
 
 
 
-.timeline-box::before{
 
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-
-    top:0;
-
-    bottom:0;
-
-    width:2px;
-
-    background:rgba(255,255,255,.35);
-
-    transform:translateX(-50%);
-
-}
 
 
 
