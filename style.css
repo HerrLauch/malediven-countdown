@@ -445,3 +445,99 @@ section h2{
     transform:translateY(0);
 
 }
+/* ===========================
+   Reise Timeline
+=========================== */
+
+
+.travel h3{
+
+    text-align:center;
+
+    font-weight:400;
+
+    margin-bottom:40px;
+
+}
+
+
+.journey{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+
+
+.journey-card{
+
+    width:min(100%,400px);
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.25);
+
+    transition:.4s;
+
+}
+
+
+
+.journey-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+
+.icon{
+
+    font-size:3rem;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.journey-line{
+
+    font-size:3rem;
+
+    animation:flug 2s infinite;
+
+}
+
+
+
+@keyframes flug{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(10px);
+
+    }
+
+}
