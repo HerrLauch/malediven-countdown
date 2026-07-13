@@ -44,3 +44,43 @@ function countdown() {
 
 countdown();
 setInterval(countdown, 1000);
+// ===========================
+// Scroll Animation
+// ===========================
+
+
+const elemente = document.querySelectorAll(
+    ".story, .travel, .bridge"
+);
+
+
+const beobachter = new IntersectionObserver(
+    eintraege => {
+
+        eintraege.forEach(
+            eintrag => {
+
+                if(eintrag.isIntersecting){
+
+                    eintrag.target.classList.add("show");
+
+                }
+
+            }
+        );
+
+    },
+    {
+        threshold:0.15
+    }
+);
+
+
+
+elemente.forEach(
+    element => {
+
+        beobachter.observe(element);
+
+    }
+);
