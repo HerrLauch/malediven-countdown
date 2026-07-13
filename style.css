@@ -1245,27 +1245,50 @@ section h2{
 =========================== */
 
 
+/* ===========================
+   Abschluss Kapitel
+=========================== */
+
+
 .finale{
 
     text-align:center;
 
-    padding:100px 20px;
+    padding:140px 20px 120px;
 
 }
+
+
+
+.finale .chapter{
+
+    color:#ffe7a3;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+}
+
 
 
 .finale h2{
 
     font-family:'Playfair Display', serif;
 
-    font-size:3rem;
+    font-size:3.2rem;
 
-    margin-bottom:35px;
+    margin:25px auto 40px;
 
 }
 
 
+
 .finale p{
+
+    max-width:700px;
+
+    margin:20px auto;
 
     font-size:1.2rem;
 
@@ -1274,20 +1297,46 @@ section h2{
 }
 
 
-.final-names{
 
-    margin-top:50px;
+.final-highlight{
 
-    font-size:2rem;
+    margin:50px auto;
 
-    color:#ffe7a3;
+    padding:35px;
+
+    max-width:450px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:30px;
+
+    font-size:1.3rem;
+
+    line-height:2;
 
 }
 
 
+
+.final-names{
+
+    margin-top:50px;
+
+    font-size:2.3rem;
+
+    color:#ffe7a3;
+
+    font-family:'Playfair Display', serif;
+
+}
+
+
+
 .final-place{
 
-    margin-top:25px;
+    margin-top:20px;
 
     font-size:1.5rem;
 
