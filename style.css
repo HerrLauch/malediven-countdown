@@ -1240,3 +1240,55 @@ section h2{
     font-size:1.3rem;
 
 }
+/* ===========================
+   Abschluss
+=========================== */
+
+
+.finale{
+
+    text-align:center;
+
+    padding:100px 20px;
+
+}
+
+
+.finale h2{
+
+    font-family:'Playfair Display', serif;
+
+    font-size:3rem;
+
+    margin-bottom:35px;
+
+}
+
+
+.finale p{
+
+    font-size:1.2rem;
+
+    line-height:1.8;
+
+}
+
+
+.final-names{
+
+    margin-top:50px;
+
+    font-size:2rem;
+
+    color:#ffe7a3;
+
+}
+
+
+.final-place{
+
+    margin-top:25px;
+
+    font-size:1.5rem;
+
+}
