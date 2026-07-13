@@ -1027,3 +1027,128 @@ section h2{
     font-size:1.2rem;
 
 }
+/* ===========================
+   Kapitel 6 - Route
+=========================== */
+
+
+.route{
+
+    text-align:center;
+
+}
+
+
+
+.route h3{
+
+    font-weight:400;
+
+}
+
+
+
+.route-box{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+    margin:50px auto;
+
+}
+
+
+
+.route-point{
+
+    width:230px;
+
+    padding:30px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:25px;
+
+}
+
+
+
+.route-icon{
+
+    font-size:3rem;
+
+}
+
+
+
+.route-point h4{
+
+    margin:15px 0;
+
+    font-size:1.3rem;
+
+}
+
+
+
+.route-flight{
+
+    font-size:3rem;
+
+    animation:plane 2s infinite;
+
+}
+
+
+
+@keyframes plane{
+
+
+    0%,100%{
+
+        transform:translateX(0);
+
+    }
+
+
+    50%{
+
+        transform:translateX(10px);
+
+    }
+
+
+}
+
+
+
+.arrival{
+
+    margin:50px auto 0;
+
+    padding:40px;
+
+    max-width:600px;
+
+    background:rgba(255,255,255,.15);
+
+    border-radius:30px;
+
+}
+
+
+
+.arrival:first-letter{
+
+    font-size:3rem;
+
+}
