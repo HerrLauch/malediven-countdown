@@ -796,3 +796,66 @@ section h2{
     }
 
 }
+/* ===========================
+   Hero Ergänzungen
+=========================== */
+
+
+.dream-text{
+
+    font-size:1.2rem;
+
+    margin-top:15px;
+
+    color:#ffe7a3;
+
+    font-style:italic;
+
+}
+
+
+
+.scroll-hint{
+
+    margin-top:35px;
+
+    font-size:1rem;
+
+    opacity:.9;
+
+    animation:hint 2s infinite;
+
+}
+
+
+
+.scroll-hint div{
+
+    font-size:2rem;
+
+    margin-top:10px;
+
+}
+
+
+
+@keyframes hint{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+        opacity:.7;
+
+    }
+
+
+    50%{
+
+        transform:translateY(10px);
+
+        opacity:1;
+
+    }
+
+}
