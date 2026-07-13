@@ -945,3 +945,85 @@ section h2{
     font-size:1.3rem;
 
 }
+/* ===========================
+   Kapitel 5 - Wünsche
+=========================== */
+
+
+.wishes{
+
+    text-align:center;
+
+}
+
+
+
+.wishes h3{
+
+    max-width:700px;
+
+    margin:0 auto 50px;
+
+    font-weight:400;
+
+    line-height:1.7;
+
+}
+
+
+
+.wish-grid{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+}
+
+
+
+.wish-card{
+
+    width:240px;
+
+    padding:30px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:25px;
+
+    transition:.4s;
+
+}
+
+
+
+.wish-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+
+.wish-card div{
+
+    font-size:2.8rem;
+
+}
+
+
+
+.wish-card h4{
+
+    margin:15px 0;
+
+    font-size:1.2rem;
+
+}
