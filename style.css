@@ -545,7 +545,6 @@ section h2{
    Malediven Licht-Effekt
 =========================== */
 
-
 .sparkles{
 
     position:fixed;
@@ -556,7 +555,7 @@ section h2{
 
     overflow:hidden;
 
-    z-index:-1;
+    z-index:5;
 
 }
 
