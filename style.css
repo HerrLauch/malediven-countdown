@@ -792,3 +792,36 @@ section h2{
     }
 
 }
+/* ===========================
+   Abschluss Kapitel 3
+=========================== */
+
+.closing{
+
+    text-align:center;
+
+    padding:80px 20px;
+
+}
+
+
+.closing p{
+
+    font-size:1.2rem;
+
+    color:#ffe7a3;
+
+    font-style:italic;
+
+}
+
+
+.closing h2{
+
+    margin-top:20px;
+
+    font-family:'Playfair Display', serif;
+
+    font-size:2.5rem;
+
+}
