@@ -273,3 +273,63 @@ section h2{
     line-height:1.8;
 
 }
+/* Übergang Countdown zu Geschichte */
+
+.bridge{
+
+    text-align:center;
+
+    padding:60px 20px;
+
+}
+
+
+.bridge h2{
+
+    font-size:2.5rem;
+
+    margin-bottom:20px;
+
+}
+
+
+.bridge p{
+
+    font-size:1.2rem;
+
+    opacity:.9;
+
+}
+
+
+.arrow{
+
+    margin-top:35px;
+
+    font-size:3rem;
+
+    animation:pfeil 2s infinite;
+
+}
+
+
+@keyframes pfeil{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+        opacity:.7;
+
+    }
+
+
+    50%{
+
+        transform:translateY(15px);
+
+        opacity:1;
+
+    }
+
+}
