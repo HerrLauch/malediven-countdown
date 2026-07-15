@@ -1341,6 +1341,26 @@ section h2{
     font-size:1.5rem;
 
 }
+.palm {
+    font-size: 70px;
+    display: inline-block;
+    animation: sway 4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+@keyframes sway {
+    0% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+
+    100% {
+        transform: rotate(-3deg);
+    }
+}
 #imageViewer {
     display: none;
     position: fixed;
