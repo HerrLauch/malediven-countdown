@@ -1391,3 +1391,12 @@ section h2{
     transform: scale(1.05);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
 }
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
