@@ -1,4 +1,4 @@
-const zielDatum = new Date("2026-08-05T10:55:00");
+const zielDatum = new Date("2026-08-05T04:00:00");
 
 function countdown() {
     const jetzt = new Date();
