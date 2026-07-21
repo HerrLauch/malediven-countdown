@@ -188,3 +188,39 @@ function zeigeUrlaubsmodus(){
     `;
 
 }
+// ===========================
+// Erinnerungsmodus
+// ===========================
+
+function zeigeErinnerung(){
+
+    document.getElementById("countdown").innerHTML = `
+
+        <div class="holiday-mode">
+
+            <div class="holiday-icon">
+                ❤️
+            </div>
+
+            <h2>
+                Danke für diese unvergessliche Reise
+            </h2>
+
+            <p>
+                🌴 Die Malediven bleiben für immer
+                ein Teil unserer Geschichte.
+            </p>
+
+            <p>
+    📸 Erinnerungen fürs Leben
+</p>
+
+<p>
+    ❤️ Das war Kapitel 1 unseres Buches.
+</p>
+
+        </div>
+
+    `;
+
+}
