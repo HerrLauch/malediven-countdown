@@ -15,12 +15,20 @@ function countdown() {
 
         if (urlaubGestartet) {
 
-            zeigeUrlaubsmodus();
+    if (jetzt >= endeUrlaub) {
 
-            return;
+        zeigeErinnerung();
 
-        }
+        return;
 
+    }
+
+
+    zeigeUrlaubsmodus();
+
+    return;
+
+}
 
         if (!reiseGestartet) {
 
