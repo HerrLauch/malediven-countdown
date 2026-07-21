@@ -6,7 +6,13 @@ function countdown() {
 
     if (unterschied <= 0) {
 
-    starteReiseAnimation();
+    if (!reiseGestartet) {
+
+        reiseGestartet = true;
+
+        starteReiseAnimation();
+
+    }
 
     return;
 
