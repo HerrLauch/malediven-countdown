@@ -1534,3 +1534,41 @@ html, body {
     }
 
 }
+.line{
+    opacity:0;
+    transform:translateY(25px);
+}
+
+.line1{
+    animation:showLine .8s ease forwards;
+    animation-delay:.5s;
+}
+
+.line2{
+    animation:showLine .8s ease forwards;
+    animation-delay:1.8s;
+}
+
+.line3{
+    animation:showLine .8s ease forwards;
+    animation-delay:3.1s;
+}
+
+.line4{
+    animation:showLine .8s ease forwards;
+    animation-delay:4.4s;
+}
+
+@keyframes showLine{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
