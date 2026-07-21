@@ -15,18 +15,28 @@ function countdown() {
 
         const urlaubGestartet = jetzt >= ankunftAngaga;
 
-        if (urlaubGestartet) {
+if (urlaubGestartet) {
 
     if (jetzt >= endeUrlaub) {
 
-        zeigeErinnerung();
+        if (!erinnerungAktiv) {
+
+            erinnerungAktiv = true;
+            zeigeErinnerung();
+
+        }
 
         return;
 
     }
 
 
-    zeigeUrlaubsmodus();
+    if (!urlaubsmodusAktiv) {
+
+        urlaubsmodusAktiv = true;
+        zeigeUrlaubsmodus();
+
+    }
 
     return;
 
