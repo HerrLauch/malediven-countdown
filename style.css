@@ -1662,3 +1662,23 @@ html, body {
     }
 
 }
+/* ===========================
+   Sanfter Wechsel Countdown
+=========================== */
+
+#countdown {
+
+    transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+
+}
+
+
+.countdown-hidden {
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+}
