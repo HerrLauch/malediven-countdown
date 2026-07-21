@@ -118,3 +118,4 @@ setTimeout(() => {
 
 }, 700);
 }
+starteReiseAnimation();
