@@ -175,8 +175,13 @@ function zeigeUrlaubsmodus(){
             </p>
 
             <p>
-                Angaga Island Resort & Spa
-            </p>
+    🌴 Angaga Island Resort & Spa
+</p>
+
+<p>
+    📍 Unser kleines Paradies<br>
+    South Ari Atoll, Malediven
+</p>
 
         </div>
 
