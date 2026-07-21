@@ -1468,3 +1468,69 @@ html, body {
     }
 
 }
+/* Flugroute */
+
+.flight-path{
+
+    position:absolute;
+
+    top:28%;
+
+    left:-10%;
+
+    width:120%;
+
+    border-top:4px dashed rgba(255,255,255,.5);
+
+    opacity:0;
+
+    animation:pathAppear 2s forwards;
+
+}
+
+#plane{
+
+    position:absolute;
+
+    top:24%;
+
+    left:-80px;
+
+    font-size:55px;
+
+    opacity:0;
+
+}
+@keyframes flyAcross{
+
+    0%{
+
+        left:-80px;
+        opacity:1;
+
+    }
+
+    100%{
+
+        left:110%;
+        opacity:1;
+
+    }
+
+}
+
+@keyframes pathAppear{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
