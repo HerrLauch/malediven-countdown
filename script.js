@@ -1,6 +1,6 @@
 const zielDatum = new Date("2026-08-05T04:00:00");
 
-const ankunftAngaga = new Date("2026-07-21T08:00:00");;
+const ankunftAngaga = new Date("2026-08-06T08:00:00");
 
 let reiseGestartet = false;
 function countdown() {
