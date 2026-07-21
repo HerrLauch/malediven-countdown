@@ -97,7 +97,9 @@ function starteReiseAnimation(){
     const celebration=document.getElementById("celebration");
 
     celebration.style.display="flex";
+const countdownBox = document.getElementById("countdown");
 
+countdownBox.style.display = "none";
     const confetti=document.getElementById("confetti");
 
     for(let i=0;i<180;i++){
