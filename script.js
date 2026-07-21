@@ -243,7 +243,7 @@ setTimeout(() => {
 </p>
 
 <p>
-    ❤️ Das war Kapitel 1 unseres Buches.
+    ❤️ Das war Kapitel 1 unserer langen Geschichte.
 </p>
 
         </div>
