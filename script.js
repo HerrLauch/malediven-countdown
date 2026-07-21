@@ -210,7 +210,13 @@ function zeigeUrlaubsmodus(){
 
 function zeigeErinnerung(){
 
-    document.getElementById("countdown").innerHTML = `
+    const countdownBox = document.getElementById("countdown");
+
+countdownBox.classList.add("countdown-hidden");
+
+setTimeout(() => {
+
+    countdownBox.innerHTML = `
 
         <div class="holiday-mode">
 
@@ -238,5 +244,7 @@ function zeigeErinnerung(){
         </div>
 
     `;
+    countdownBox.classList.remove("countdown-hidden");
 
+}, 800);
 }
