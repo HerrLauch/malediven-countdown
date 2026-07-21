@@ -5,14 +5,12 @@ function countdown() {
     const unterschied = zielDatum - jetzt;
 
     if (unterschied <= 0) {
-        document.getElementById("countdown").innerHTML = `
-            <div class="time-box">
-                <div class="number">✈️</div>
-                <div class="label">Der Urlaub beginnt!</div>
-            </div>
-        `;
-        return;
-    }
+
+    starteReiseAnimation();
+
+    return;
+
+}
 
     const tage = Math.floor(unterschied / (1000 * 60 * 60 * 24));
     const stunden = Math.floor((unterschied / (1000 * 60 * 60)) % 24);
