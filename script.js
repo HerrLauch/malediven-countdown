@@ -49,7 +49,13 @@ function countdown() {
     const sekunden = Math.floor((unterschied / 1000) % 60);
 
 
-    document.getElementById("countdown").innerHTML = `
+    const countdownBox = document.getElementById("countdown");
+
+countdownBox.classList.add("countdown-hidden");
+
+setTimeout(() => {
+
+    countdownBox.innerHTML = ``
         <div class="time-box">
             <div class="number">${tage}</div>
             <div class="label">Tage</div>
@@ -70,7 +76,9 @@ function countdown() {
             <div class="label">Sekunden</div>
         </div>
     `;
+    countdownBox.classList.remove("countdown-hidden");
 
+}, 800);
 }
 
 countdown();
