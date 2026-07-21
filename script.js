@@ -84,3 +84,33 @@ elemente.forEach(
 
     }
 );
+// ===========================
+// Reisebeginn
+// ===========================
+
+function starteReiseAnimation(){
+
+    const celebration=document.getElementById("celebration");
+
+    celebration.style.display="flex";
+
+    const confetti=document.getElementById("confetti");
+
+    for(let i=0;i<180;i++){
+
+        const piece=document.createElement("div");
+
+        piece.className="confetti";
+
+        piece.style.left=Math.random()*100+"vw";
+
+        piece.style.animationDuration=(Math.random()*3+3)+"s";
+
+        piece.style.backgroundColor=
+        ["#00d4ff","#ffffff","#ffe066","#7cff7c","#ff8ad8"][Math.floor(Math.random()*5)];
+
+        confetti.appendChild(piece);
+
+    }
+
+}
