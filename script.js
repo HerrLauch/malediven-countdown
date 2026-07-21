@@ -3,6 +3,8 @@ const zielDatum = new Date("2026-08-05T04:00:00");
 const ankunftAngaga = new Date("2026-08-06T08:00:00");
 const endeUrlaub = new Date("2026-08-20T08:00:00");
 let reiseGestartet = false;
+let urlaubsmodusAktiv = false;
+let erinnerungAktiv = false;
 function countdown() {
 
     const jetzt = new Date();
