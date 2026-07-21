@@ -4,42 +4,42 @@ const ankunftAngaga = new Date("2026-08-06T08:00:00");
 
 let reiseGestartet = false;
 function countdown() {
+
     const jetzt = new Date();
     const unterschied = zielDatum - jetzt;
 
-if (unterschied <= 0) {
 
-    const urlaubGestartet = jetzt >= ankunftAngaga;
+    if (unterschied <= 0) {
 
-    if (urlaubGestartet) {
+        const urlaubGestartet = jetzt >= ankunftAngaga;
 
-        zeigeUrlaubsmodus();
+        if (urlaubGestartet) {
+
+            zeigeUrlaubsmodus();
+
+            return;
+
+        }
+
+
+        if (!reiseGestartet) {
+
+            reiseGestartet = true;
+
+            starteReiseAnimation();
+
+        }
 
         return;
 
     }
 
 
-    if (!reiseGestartet) {
-
-        reiseGestartet = true;
-
-        starteReiseAnimation();
-
-    }
-
-    return;
-
-}
-
-    return;
-
-}
-
     const tage = Math.floor(unterschied / (1000 * 60 * 60 * 24));
     const stunden = Math.floor((unterschied / (1000 * 60 * 60)) % 24);
     const minuten = Math.floor((unterschied / (1000 * 60)) % 60);
     const sekunden = Math.floor((unterschied / 1000) % 60);
+
 
     document.getElementById("countdown").innerHTML = `
         <div class="time-box">
@@ -62,6 +62,7 @@ if (unterschied <= 0) {
             <div class="label">Sekunden</div>
         </div>
     `;
+
 }
 
 countdown();
