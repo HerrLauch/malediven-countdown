@@ -129,4 +129,34 @@ setTimeout(() => {
 
 }, 700);
 }
+// ===========================
+// Urlaubsmodus
+// ===========================
 
+function zeigeUrlaubsmodus(){
+
+    document.getElementById("countdown").innerHTML = `
+
+        <div class="holiday-mode">
+
+            <div class="holiday-icon">
+                🏝️
+            </div>
+
+            <h2>
+                Wir sind im Paradies
+            </h2>
+
+            <p>
+                ❤️ Tag 1 von 14
+            </p>
+
+            <p>
+                Angaga Island Resort & Spa
+            </p>
+
+        </div>
+
+    `;
+
+}
