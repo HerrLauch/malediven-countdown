@@ -1572,3 +1572,93 @@ html, body {
     }
 
 }
+/* ===========================
+   Urlaubsmodus
+=========================== */
+
+.holiday-mode {
+
+    text-align:center;
+    padding:25px;
+
+    background:rgba(255,255,255,0.12);
+
+    border-radius:25px;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.25);
+
+    animation:holidayAppear 1.2s ease;
+
+}
+
+
+.holiday-icon {
+
+    font-size:4rem;
+
+    animation:pulseIsland 3s infinite;
+
+}
+
+
+.holiday-mode h2 {
+
+    margin-top:15px;
+
+    color:#ffe066;
+
+    font-size:2rem;
+
+}
+
+
+.holiday-mode p {
+
+    font-size:1.2rem;
+
+    margin:12px 0;
+
+}
+
+
+@keyframes holidayAppear {
+
+    from {
+
+        opacity:0;
+
+        transform:translateY(30px) scale(.95);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+
+    }
+
+}
+
+
+@keyframes pulseIsland {
+
+    0%,100% {
+
+        transform:scale(1);
+
+    }
+
+
+    50% {
+
+        transform:scale(1.08);
+
+    }
+
+}
