@@ -7,7 +7,18 @@ function countdown() {
     const jetzt = new Date();
     const unterschied = zielDatum - jetzt;
 
-    if (unterschied <= 0) {
+if (unterschied <= 0) {
+
+    const urlaubGestartet = jetzt >= ankunftAngaga;
+
+    if (urlaubGestartet) {
+
+        zeigeUrlaubsmodus();
+
+        return;
+
+    }
+
 
     if (!reiseGestartet) {
 
@@ -16,6 +27,10 @@ function countdown() {
         starteReiseAnimation();
 
     }
+
+    return;
+
+}
 
     return;
 
