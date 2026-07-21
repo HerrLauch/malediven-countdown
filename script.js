@@ -110,5 +110,11 @@ function starteReiseAnimation(){
         confetti.appendChild(piece);
 
     }
+const plane = document.getElementById("plane");
 
+setTimeout(() => {
+
+    plane.style.animation = "flyAcross 7s linear forwards";
+
+}, 700);
 }
