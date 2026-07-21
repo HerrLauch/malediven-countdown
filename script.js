@@ -151,6 +151,13 @@ setTimeout(() => {
 
 function zeigeUrlaubsmodus(){
 
+    const heute = new Date();
+
+    const urlaubstag = Math.floor(
+        (heute - ankunftAngaga) / (1000 * 60 * 60 * 24)
+    ) + 1;
+
+
     document.getElementById("countdown").innerHTML = `
 
         <div class="holiday-mode">
@@ -164,7 +171,7 @@ function zeigeUrlaubsmodus(){
             </h2>
 
             <p>
-                ❤️ Tag 1 von 14
+                ❤️ Tag ${urlaubstag} von 14
             </p>
 
             <p>
