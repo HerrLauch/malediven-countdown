@@ -55,7 +55,7 @@ countdownBox.classList.add("countdown-hidden");
 
 setTimeout(() => {
 
-    countdownBox.innerHTML = ``
+    countdownBox.innerHTML = `
         <div class="time-box">
             <div class="number">${tage}</div>
             <div class="label">Tage</div>
