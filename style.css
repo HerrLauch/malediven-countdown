@@ -247,7 +247,7 @@ section h2{
 
 .story{
 
-    background:rgba(255,255,255,.12);
+    background:var(--glass);
 
     backdrop-filter:blur(12px);
 
@@ -715,7 +715,7 @@ section:not(.show){
 
     margin:50px 0;
 
-    background:rgba(255,255,255,.12);
+    background:var(--glass);
 
     backdrop-filter:blur(12px);
 
@@ -952,7 +952,7 @@ section:not(.show){
 
     padding:30px;
 
-    background:rgba(255,255,255,.12);
+    background:var(--glass);
 
     border-radius:25px;
 
@@ -1034,7 +1034,7 @@ section:not(.show){
 
     padding:30px;
 
-    background:rgba(255,255,255,.12);
+    background:var(--glass);
 
     backdrop-filter:blur(12px);
 
@@ -1114,7 +1114,7 @@ section:not(.show){
 
     padding:30px;
 
-    background:rgba(255,255,255,.12);
+    background:var(--glass);
 
     backdrop-filter:blur(12px);
 
@@ -1239,7 +1239,7 @@ section:not(.show){
 
     border-radius:30px;
 
-    background:rgba(255,255,255,.12);
+    background:var(--glass);
 
     backdrop-filter:blur(12px);
 
@@ -1348,7 +1348,7 @@ section:not(.show){
 
     max-width:450px;
 
-    background:rgba(255,255,255,.12);
+    background:var(--glass);
 
     backdrop-filter:blur(12px);
 
