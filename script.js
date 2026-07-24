@@ -23,7 +23,24 @@ let erinnerungAktiv = false;
 
 
 const countdownBox = document.getElementById("countdown");
+/* ===========================
+   Bilder Viewer
+=========================== */
 
+function openImage(src) {
+
+    document.getElementById("bigImage").src = src;
+
+    document.getElementById("imageViewer").style.display = "flex";
+
+}
+
+
+function closeImage() {
+
+    document.getElementById("imageViewer").style.display = "none";
+
+}
 
 
 /* ===========================
