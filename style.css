@@ -415,19 +415,6 @@ section h2{
 
 }
 
-
-
-
-
-@media(min-width:900px){
-
-    .story::before{
-
-        display:block;
-
-    }
-
-}
 /* ===========================
    Scroll Animation
 =========================== */
@@ -1721,4 +1708,15 @@ section:not(.show){
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 1px;
+}
+/* Mobile Hintergrund Optimierung */
+
+@media(max-width:700px){
+
+    body{
+
+        background-attachment:scroll;
+
+    }
+
 }
