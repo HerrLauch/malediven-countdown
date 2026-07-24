@@ -23,6 +23,10 @@ let erinnerungAktiv = false;
 
 
 const countdownBox = document.getElementById("countdown");
+
+if(!countdownBox){
+    console.error("Countdown nicht gefunden");
+}
 /* ===========================
    Bilder Viewer
 =========================== */
