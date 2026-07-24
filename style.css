@@ -416,9 +416,7 @@ section h2{
 =========================== */
 
 
-.story,
-.travel,
-.bridge{
+section{
 
     opacity:0;
 
