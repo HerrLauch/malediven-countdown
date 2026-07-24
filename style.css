@@ -131,6 +131,8 @@ h1{
     #countdown{
         grid-template-columns:repeat(2,1fr);
     }
+
+}
 ```css
 /* Sanftes Einblenden der Seite */
 .card{
