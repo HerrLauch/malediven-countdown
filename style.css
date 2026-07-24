@@ -160,19 +160,6 @@ h1{
     opacity:.95;
 }
 
-@media(max-width:700px){
-
-    h1{
-        font-size:2rem;
-        white-space:nowrap;
-    }
-
-
-    #countdown{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-}
 /* Sanftes Einblenden der Seite */
 
 @keyframes erscheinen{
@@ -754,23 +741,6 @@ section:not(.show){
 }
 
 
-
-@media(max-width:700px){
-
-    .timeline-box::before{
-
-        display:none;
-
-    }
-
-
-    .timeline-item{
-
-        flex-direction:column;
-
-    }
-
-}
 /* ===========================
    Hero Ergänzungen
 =========================== */
@@ -1729,51 +1699,12 @@ section:not(.show){
 }
 /* Mobile Hintergrund Optimierung */
 
-@media(max-width:700px){
-
-    body{
-
-        background-attachment:scroll;
-
-    }
-
-}
 /* ===========================
    Mobile Route Darstellung
 =========================== */
 
 
-@media(max-width:700px){
 
-
-    .route-box{
-
-        flex-direction:column;
-
-        gap:20px;
-
-    }
-
-
-    .route-point{
-
-        width:100%;
-
-        max-width:320px;
-
-    }
-
-
-    .route-flight{
-
-        transform:rotate(90deg);
-
-        margin:10px 0;
-
-    }
-
-
-}
 /* ===========================
    Mobile Anpassungen
 =========================== */
