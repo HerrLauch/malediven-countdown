@@ -35,10 +35,9 @@
         <p class="subtitle">
     Noch bis zu unserem ersten großen gemeinsamen Abenteuer
 </p>
-
-        <div id="countdown">
-            Wird geladen...
-        </div>
+<div id="countdown" aria-live="polite">
+    Wird geladen...
+</div>
 <div class="scroll-hint">
 
     <span>Entdecke unseren Zeitplan</span>
@@ -974,15 +973,5 @@
     <img id="bigImage">
 </div>
 
-<script>
-function openImage(src) {
-    document.getElementById("bigImage").src = src;
-    document.getElementById("imageViewer").style.display = "flex";
-}
-
-function closeImage() {
-    document.getElementById("imageViewer").style.display = "none";
-}
-</script>
 </body>
 </html>
