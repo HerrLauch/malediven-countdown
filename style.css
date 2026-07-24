@@ -49,6 +49,9 @@ body{
 
 .card{
 
+    position:relative;
+    overflow:hidden;
+
     width:min(90%,700px);
 
     margin:70px auto;
@@ -66,6 +69,8 @@ body{
     padding:45px 35px;
 
     box-shadow:0 20px 50px rgba(0,0,0,.35);
+
+    animation: erscheinen 2s ease;
 
 }
 
@@ -135,9 +140,6 @@ h1{
 }
 ```css
 /* Sanftes Einblenden der Seite */
-.card{
-    animation: erscheinen 2s ease;
-}
 
 @keyframes erscheinen{
     from{
@@ -192,10 +194,7 @@ h1{
 
 
 /* Karte als Bezugspunkt */
-.card{
-    position:relative;
-    overflow:hidden;
-}
+
 ```
 
 }
@@ -1706,8 +1705,4 @@ section h2{
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 1px;
-}
-
-.card {
-    position: relative;
 }
