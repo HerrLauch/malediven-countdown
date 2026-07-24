@@ -418,13 +418,22 @@ section h2{
 
 section{
 
-    opacity:0;
+    opacity:1;
 
-    transform:translateY(50px);
+    transform:translateY(0);
 
     transition:
         opacity 1s ease,
         transform 1s ease;
+
+}
+
+
+section:not(.show){
+
+    opacity:0;
+
+    transform:translateY(50px);
 
 }
 
