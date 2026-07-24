@@ -19,7 +19,23 @@
     padding:0;
     box-sizing:border-box;
 }
+/* ===========================
+   Globale Variablen
+=========================== */
 
+:root{
+
+    --glass:rgba(255,255,255,.12);
+
+    --glass-light:rgba(255,255,255,.18);
+
+    --gold:#ffe7a3;
+
+    --shadow:0 15px 40px rgba(0,0,0,.25);
+
+    --radius:25px;
+
+}
 
 /* =====================================================
    3. Grundlayout
