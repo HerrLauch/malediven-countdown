@@ -526,3 +526,11 @@ setInterval(
 countdown,
 1000
 );
+function openImage(src) {
+    document.getElementById("bigImage").src = src;
+    document.getElementById("imageViewer").style.display = "flex";
+}
+
+function closeImage() {
+    document.getElementById("imageViewer").style.display = "none";
+}
