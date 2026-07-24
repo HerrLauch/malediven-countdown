@@ -7,7 +7,7 @@
    1. Google Fonts
    ===================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap");
 
 
 /* =====================================================
@@ -83,6 +83,7 @@ body{
 h1{
     font-size:3.2rem;
     margin:15px 0;
+    animation: herz 2.5s infinite;
 }
 
 .subtitle{
@@ -153,9 +154,6 @@ h1{
 
 
 /* Kleine romantische Herz-Bewegung */
-h1{
-    animation: herz 2.5s infinite;
-}
 
 @keyframes herz{
 
