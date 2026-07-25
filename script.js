@@ -15,7 +15,6 @@ const ankunftAngaga = new Date("2026-08-06T08:00:00+05:00");
 const endeUrlaub = new Date("2026-08-20T08:00:00+05:00");
 
 
-let reiseGestartet = false;
 let unterwegsAktiv = false;
 let urlaubsmodusAktiv = false;
 let erinnerungAktiv = false;
