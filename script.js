@@ -34,6 +34,8 @@ if(!countdownBox){
 
 function openImage(src) {
 
+    if(!bigImage || !imageViewer) return;
+
     bigImage.src = src;
 
     imageViewer.style.display = "flex";
