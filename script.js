@@ -46,7 +46,15 @@ function closeImage() {
 
 }
 
+document.querySelectorAll(".gallery-image").forEach(image => {
 
+    image.addEventListener("click", () => {
+
+        openImage(image.src);
+
+    });
+
+});
 /* ===========================
    Countdown
 =========================== */
