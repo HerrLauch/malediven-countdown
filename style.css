@@ -1946,3 +1946,6 @@ section:not(.show){
     line-height:1.8;
 
 }
+.memory-card{
+    border:5px solid red !important;
+}
