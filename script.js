@@ -22,7 +22,8 @@ let erinnerungAktiv = false;
 
 
 const countdownBox = document.getElementById("countdown");
-
+const imageViewer = document.getElementById("imageViewer");
+const bigImage = document.getElementById("bigImage");
 if(!countdownBox){
     console.error("Countdown nicht gefunden");
 }
@@ -552,5 +553,3 @@ countdown();
 
 
 setInterval(countdown, 1000);
-const imageViewer = document.getElementById("imageViewer");
-const bigImage = document.getElementById("bigImage");
