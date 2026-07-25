@@ -1778,3 +1778,51 @@ section:not(.show){
     white-space:normal;
 
 }
+/* ===========================
+   Prolog Übergang
+=========================== */
+
+
+.prologue-link{
+
+    text-align:center;
+
+    padding:80px 20px;
+
+}
+
+
+.prologue-link a{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:18px 35px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:30px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:1.2rem;
+
+    border:1px solid rgba(255,255,255,.3);
+
+    transition:.4s;
+
+}
+
+
+.prologue-link a:hover{
+
+    transform:translateY(-8px);
+
+    background:rgba(255,255,255,.3);
+
+}
