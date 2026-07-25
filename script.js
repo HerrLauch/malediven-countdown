@@ -26,22 +26,25 @@ const countdownBox = document.getElementById("countdown");
 if(!countdownBox){
     console.error("Countdown nicht gefunden");
 }
+
+const imageViewer = document.getElementById("imageViewer");
+const bigImage = document.getElementById("bigImage");
 /* ===========================
    Bilder Viewer
 =========================== */
 
 function openImage(src) {
 
-    document.getElementById("bigImage").src = src;
+    bigImage.src = src;
 
-    document.getElementById("imageViewer").style.display = "flex";
+    imageViewer.style.display = "flex";
 
 }
 
 
 function closeImage() {
 
-    document.getElementById("imageViewer").style.display = "none";
+    imageViewer.style.display = "none";
 
 }
 
