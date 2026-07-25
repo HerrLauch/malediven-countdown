@@ -27,8 +27,6 @@ if(!countdownBox){
     console.error("Countdown nicht gefunden");
 }
 
-const imageViewer = document.getElementById("imageViewer");
-const bigImage = document.getElementById("bigImage");
 /* ===========================
    Bilder Viewer
 =========================== */
@@ -554,3 +552,5 @@ countdown();
 
 
 setInterval(countdown, 1000);
+const imageViewer = document.getElementById("imageViewer");
+const bigImage = document.getElementById("bigImage");
