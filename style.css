@@ -1877,12 +1877,12 @@ section:not(.show){
 
 body.story-background{
 
-    background:
+    background-image:
         linear-gradient(
             rgba(20,20,20,.45),
             rgba(20,20,20,.45)
         ),
-url("images/prolog-bg.jpg");
+        url("./images/prolog-bg.jpg");
 
     background-size:cover;
     background-position:center;
