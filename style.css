@@ -1871,3 +1871,21 @@ section:not(.show){
     background:rgba(255,255,255,.3);
 
 }
+/* ===========================
+   Hintergrund Prolog
+=========================== */
+
+body.story-background{
+
+    background:
+        linear-gradient(
+            rgba(20,20,20,.45),
+            rgba(20,20,20,.45)
+        ),
+        url("HIER KOMMT DAS BILD");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+}
