@@ -1882,21 +1882,7 @@ body.story-background{
             rgba(20,20,20,.45),
             rgba(20,20,20,.45)
         ),
-        url("HIER KOMMT DAS BILD");
-
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-
-}
-body.story-background{
-
-    background:
-        linear-gradient(
-            rgba(20,20,20,.45),
-            rgba(20,20,20,.45)
-        ),
-        url("HIER KOMMT DAS BILD");
+url("images/prolog-bg.jpg");
 
     background-size:cover;
     background-position:center;
