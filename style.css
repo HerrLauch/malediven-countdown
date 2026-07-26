@@ -1707,6 +1707,24 @@ section:not(.show){
    Mobile Route Darstellung
 =========================== */
 
+/* ===========================
+   Hintergrund Prolog
+=========================== */
+
+body.story-background{
+
+    background:
+        linear-gradient(
+            rgba(20,20,20,.45),
+            rgba(20,20,20,.45)
+        ),
+        url("images/prolog-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+}
 
 
 /* ===========================
@@ -1869,23 +1887,5 @@ section:not(.show){
     transform:translateY(-5px);
 
     background:rgba(255,255,255,.3);
-
-}
-/* ===========================
-   Hintergrund Prolog
-=========================== */
-
-body.story-background{
-
-    background:
-        linear-gradient(
-            rgba(20,20,20,.45),
-            rgba(20,20,20,.45)
-        ),
-        url("images/prolog-bg.jpg");
-
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
 
 }
