@@ -1931,3 +1931,30 @@ body.story-background{
     }
 
 }
+/* Weihnachtsbaum Bewegung */
+
+.christmas{
+
+    display:inline-block;
+
+    animation: christmasMove 3s ease-in-out infinite;
+
+}
+
+
+@keyframes christmasMove{
+
+    0%,100%{
+
+        transform:rotate(-5deg);
+
+    }
+
+
+    50%{
+
+        transform:rotate(5deg);
+
+    }
+
+}
