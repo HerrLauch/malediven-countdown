@@ -1938,3 +1938,29 @@ body.story-background{
     }
 
 }
+.chapter-icon{
+
+    display:inline-block !important;
+
+    position:relative;
+
+    animation:iconFloat 2s ease-in-out infinite !important;
+
+}
+
+
+@keyframes iconFloat{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+}
