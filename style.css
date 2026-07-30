@@ -1889,3 +1889,18 @@ body.story-background{
     background:rgba(255,255,255,.3);
 
 }
+.story-intro{
+
+    background:var(--glass);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:25px;
+
+    padding:45px;
+
+    line-height:1.9;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+}
