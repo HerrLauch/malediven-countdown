@@ -1895,3 +1895,28 @@ body.story-background{
     box-shadow:0 15px 40px rgba(0,0,0,.25);
 
 }
+/* ===========================
+   Kapitel-Animationen
+=========================== */
+
+.flag-icon{
+
+    animation:flagFloat 3s ease-in-out infinite;
+
+}
+
+@keyframes flagFloat{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
