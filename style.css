@@ -2117,3 +2117,44 @@ body.story-background{
     }
 
 }
+/* Herz Animation */
+
+.heart-icon{
+
+    display:inline-block;
+
+    animation: heartBeat 2s ease-in-out infinite;
+
+}
+
+
+@keyframes heartBeat{
+
+    0%,100%{
+
+        transform:scale(1);
+
+    }
+
+
+    25%{
+
+        transform:scale(1.12);
+
+    }
+
+
+    40%{
+
+        transform:scale(1);
+
+    }
+
+
+    60%{
+
+        transform:scale(1.08);
+
+    }
+
+}
