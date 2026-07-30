@@ -1933,3 +1933,42 @@ body.story-background{
     }
 
 }
+/* Test Animation Kapitel Icon */
+
+.chapter-icon,
+.flag-icon{
+
+    display:inline-block;
+    position:relative;
+
+    animation-name:flagFloatDesktop;
+    animation-duration:2s;
+    animation-iteration-count:infinite;
+    animation-timing-function:ease-in-out;
+
+}
+
+
+@keyframes flagFloatDesktop{
+
+    0%{
+
+        top:0px;
+
+    }
+
+
+    50%{
+
+        top:-15px;
+
+    }
+
+
+    100%{
+
+        top:0px;
+
+    }
+
+}
