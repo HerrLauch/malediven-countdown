@@ -1896,23 +1896,22 @@ body.story-background{
 
 }
 /* ===========================
-   Kapitel Icons
+   Kapitel Icons Animation
 =========================== */
 
-.chapter-icon{
+.chapter-icon,
+.flag-icon{
 
     display:inline-block;
-
+    vertical-align:middle;
 }
 
 
 .flag-icon{
 
-    display:inline-block;
-
     animation:flagFloat 2s ease-in-out infinite;
 
-    transform-origin:center;
+    transform-origin:center bottom;
 
 }
 
@@ -1929,45 +1928,6 @@ body.story-background{
     50%{
 
         transform:translateY(-12px);
-
-    }
-
-}
-/* Test Animation Kapitel Icon */
-
-.chapter-icon,
-.flag-icon{
-
-    display:inline-block;
-    position:relative;
-
-    animation-name:flagFloatDesktop;
-    animation-duration:2s;
-    animation-iteration-count:infinite;
-    animation-timing-function:ease-in-out;
-
-}
-
-
-@keyframes flagFloatDesktop{
-
-    0%{
-
-        top:0px;
-
-    }
-
-
-    50%{
-
-        top:-15px;
-
-    }
-
-
-    100%{
-
-        top:0px;
 
     }
 
