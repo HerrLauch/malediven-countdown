@@ -431,9 +431,9 @@ section h2{
 
 section{
 
-    opacity:1;
+    opacity:0;
 
-    transform:translateY(0);
+    transform:translateY(50px);
 
     transition:
         opacity 1s ease,
@@ -442,16 +442,7 @@ section{
 }
 
 
-section:not(.show){
-
-    opacity:0;
-
-    transform:translateY(50px);
-
-}
-
-
-.show{
+section.show{
 
     opacity:1;
 
