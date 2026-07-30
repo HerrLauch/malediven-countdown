@@ -1931,13 +1931,13 @@ body.story-background{
     }
 
 }
-/* Weihnachtsbaum Bewegung */
+/* Weihnachtsicon Animation */
 
 .christmas{
 
     display:inline-block;
 
-    animation: christmasMove 3s ease-in-out infinite;
+    animation:christmasMove 3s ease-in-out infinite;
 
 }
 
@@ -1945,16 +1945,11 @@ body.story-background{
 @keyframes christmasMove{
 
     0%,100%{
-
-        transform:rotate(-5deg);
-
+        transform:rotate(-8deg);
     }
 
-
     50%{
-
-        transform:rotate(5deg);
-
+        transform:rotate(8deg);
     }
 
 }
