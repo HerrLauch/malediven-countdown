@@ -1905,30 +1905,28 @@ body.story-background{
     display:inline-block;
     vertical-align:middle;
 }
+/* Flaggen Animation Fix Firefox Desktop */
 
+.chapter-icon .flag-icon{
 
-.flag-icon{
+    display:inline-block;
+    position:relative;
 
-    animation:flagFloat 2s ease-in-out infinite;
+    animation:flagFloatFirefox 2s ease-in-out infinite;
 
-    transform-origin:center bottom;
+    will-change:transform;
 
 }
 
 
-@keyframes flagFloat{
+@keyframes flagFloatFirefox{
 
     0%,100%{
-
         transform:translateY(0);
-
     }
 
-
     50%{
-
         transform:translateY(-12px);
-
     }
 
 }
