@@ -2064,3 +2064,56 @@ body.story-background{
     }
 
 }
+/* Mustang Animation */
+
+.mustang-icon{
+
+    display:inline-block;
+
+    animation: mustangRun 2.8s ease-in-out infinite;
+
+}
+
+
+@keyframes mustangRun{
+
+    0%,100%{
+
+        transform:
+        translateX(0)
+        translateY(0)
+        rotate(0deg);
+
+    }
+
+
+    25%{
+
+        transform:
+        translateX(6px)
+        translateY(-8px)
+        rotate(5deg);
+
+    }
+
+
+    50%{
+
+        transform:
+        translateX(0)
+        translateY(0)
+        rotate(0deg);
+
+    }
+
+
+    75%{
+
+        transform:
+        translateX(-4px)
+        translateY(-5px)
+        rotate(-5deg);
+
+    }
+
+}
