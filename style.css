@@ -1898,19 +1898,11 @@ body.story-background{
 /* ===========================
    Kapitel Icons
 =========================== */
-
-.chapter-icon{
-
-    display:inline-block;
-
-}
-
-
 .flag-icon{
 
     display:inline-block;
 
-    animation:flagFloat 3s ease-in-out infinite;
+    animation:flagFloat 2s ease-in-out infinite;
 
 }
 
@@ -1918,16 +1910,11 @@ body.story-background{
 @keyframes flagFloat{
 
     0%,100%{
-
         transform:translateY(0);
-
     }
 
-
     50%{
-
-        transform:translateY(-15px);
-
+        transform:translateY(-12px);
     }
 
 }
