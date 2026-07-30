@@ -1898,11 +1898,31 @@ body.story-background{
 /* ===========================
    Kapitel Icons
 =========================== */
-.flag-icon{
+.chapter-icon{
 
     display:inline-block;
 
-    animation:flagFloat 2s ease-in-out infinite;
+    margin-right:12px;
+
+    animation:iconFloat 3s ease-in-out infinite;
+
+}
+
+
+@keyframes iconFloat{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
 
 }
 
