@@ -2015,3 +2015,52 @@ body.story-background{
     }
 
 }
+/* Spieleabend Würfel Animation */
+
+.dice-icon{
+
+    display:inline-block;
+
+    animation:diceRoll 2.5s ease-in-out infinite;
+
+}
+
+
+@keyframes diceRoll{
+
+    0%,100%{
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+
+    }
+
+
+    25%{
+
+        transform:
+        translateY(-8px)
+        rotate(15deg);
+
+    }
+
+
+    50%{
+
+        transform:
+        translateY(0)
+        rotate(-15deg);
+
+    }
+
+
+    75%{
+
+        transform:
+        translateY(-5px)
+        rotate(10deg);
+
+    }
+
+}
