@@ -1953,3 +1953,34 @@ body.story-background{
     }
 
 }
+/* China Lights Laternen Animation */
+
+.lantern{
+
+    display:inline-block;
+
+    animation: lanternGlow 2.5s ease-in-out infinite;
+
+}
+
+
+@keyframes lanternGlow{
+
+    0%,100%{
+
+        transform:translateY(0) scale(1);
+
+        filter:drop-shadow(0 0 0 rgba(255,180,50,0));
+
+    }
+
+
+    50%{
+
+        transform:translateY(-8px) scale(1.08);
+
+        filter:drop-shadow(0 0 15px rgba(255,180,50,.9));
+
+    }
+
+}
