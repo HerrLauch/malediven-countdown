@@ -2244,3 +2244,36 @@ body.story-background{
     }
 
 }
+/* Malediven Palme im Wind */
+
+.palm-icon{
+
+    display:inline-block;
+
+    transform-origin:bottom center;
+
+    animation:palmWind 4s ease-in-out infinite;
+
+}
+
+
+@keyframes palmWind{
+
+    0%,100%{
+
+        transform:
+        rotate(-5deg)
+        translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:
+        rotate(5deg)
+        translateY(-8px);
+
+    }
+
+}
