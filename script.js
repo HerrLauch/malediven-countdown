@@ -7,8 +7,7 @@
 /* ===========================
    Reisezeiten
 =========================== */
-
-const zielDatum = new Date("2026-08-05T04:00:00+02:00");
+const zielDatum = new Date("2026-08-04T15:00:00+02:00");
 
 const ankunftAngaga = new Date("2026-08-06T08:00:00+05:00");
 
