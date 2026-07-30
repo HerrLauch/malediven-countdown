@@ -1896,28 +1896,38 @@ body.story-background{
 
 }
 /* ===========================
-   Kapitel-Animationen
+   Kapitel Icons
 =========================== */
 
+.chapter-icon{
+
+    display:inline-block;
+
+}
+
+
 .flag-icon{
+
+    display:inline-block;
 
     animation:flagFloat 3s ease-in-out infinite;
 
 }
 
+
 @keyframes flagFloat{
 
-    0%{
-        transform:translateY(0px);
+    0%,100%{
+
+        transform:translateY(0);
+
     }
+
 
     50%{
-        transform:translateY(-6px);
+
+        transform:translateY(-15px);
+
     }
 
-    100%{
-        transform:translateY(0px);
-    }
-
-}
 }
