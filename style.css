@@ -2207,3 +2207,40 @@ body.story-background{
     }
 
 }
+/* Zukunfts Kapitel Glitzer Animation */
+
+.sparkle-icon{
+
+    display:inline-block;
+
+    animation:sparkleGlow 2s ease-in-out infinite;
+
+}
+
+
+@keyframes sparkleGlow{
+
+    0%,100%{
+
+        transform:
+        scale(1)
+        rotate(0deg);
+
+        filter:
+        drop-shadow(0 0 0 rgba(255,230,120,0));
+
+    }
+
+
+    50%{
+
+        transform:
+        scale(1.2)
+        rotate(15deg);
+
+        filter:
+        drop-shadow(0 0 15px rgba(255,230,120,.9));
+
+    }
+
+}
