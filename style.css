@@ -2158,3 +2158,52 @@ body.story-background{
     }
 
 }
+/* Zweiter Mustang - Reise Animation */
+
+.road-icon{
+
+    display:inline-block;
+
+    animation: roadTrip 3s ease-in-out infinite;
+
+}
+
+
+@keyframes roadTrip{
+
+    0%,100%{
+
+        transform:
+        translateX(0)
+        rotate(0deg);
+
+    }
+
+
+    25%{
+
+        transform:
+        translateX(12px)
+        rotate(5deg);
+
+    }
+
+
+    50%{
+
+        transform:
+        translateX(0)
+        rotate(0deg);
+
+    }
+
+
+    75%{
+
+        transform:
+        translateX(-8px)
+        rotate(-5deg);
+
+    }
+
+}
