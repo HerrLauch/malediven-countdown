@@ -1898,31 +1898,21 @@ body.story-background{
 /* ===========================
    Kapitel Icons
 =========================== */
+
 .chapter-icon{
 
     display:inline-block;
 
-    margin-right:12px;
-
-    animation:iconFloat 3s ease-in-out infinite;
-
 }
 
 
-@keyframes iconFloat{
+.flag-icon{
 
-    0%,100%{
+    display:inline-block;
 
-        transform:translateY(0);
+    animation:flagFloat 2s ease-in-out infinite;
 
-    }
-
-
-    50%{
-
-        transform:translateY(-10px);
-
-    }
+    transform-origin:center;
 
 }
 
@@ -1930,36 +1920,15 @@ body.story-background{
 @keyframes flagFloat{
 
     0%,100%{
+
         transform:translateY(0);
+
     }
 
+
     50%{
+
         transform:translateY(-12px);
-    }
-
-}
-.chapter-icon{
-
-    display:inline-block !important;
-
-    position:relative;
-
-    animation:iconFloat 2s ease-in-out infinite !important;
-
-}
-
-
-@keyframes iconFloat{
-
-    0%,100%{
-
-        transform:translateY(0);
-
-    }
-
-    50%{
-
-        transform:translateY(-15px);
 
     }
 
