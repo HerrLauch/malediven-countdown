@@ -571,9 +571,15 @@ document.querySelectorAll(".memory-slider").forEach(slider => {
     const beschriftung = slider.querySelector(".memory-caption");
 
 
-    const texte = JSON.parse(
-        slider.dataset.texts
-    );
+const texte = [
+
+    "Unser erster gemeinsamer Ausflug nach Dänemark ❤️",
+
+    "Neue Eindrücke sammeln und gemeinsam erleben 🦁",
+
+    "Gemütliche Abende und schöne Erinnerungen im Whirlpool 🌙"
+
+];
 
 
     let aktuellesBild = 0;
