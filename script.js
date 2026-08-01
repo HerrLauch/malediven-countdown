@@ -544,16 +544,18 @@ beobachter.observe(element);
 
 
 
-
 /* ===========================
    Start
 =========================== */
 
 
-countdown();
+if(countdownBox){
 
+    countdown();
 
-setInterval(countdown, 1000);
+    setInterval(countdown, 1000);
+
+}
 /* ===========================
    Erinnerungs Bilder Slider
 =========================== */
