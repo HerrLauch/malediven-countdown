@@ -573,11 +573,11 @@ document.querySelectorAll(".memory-slider").forEach(slider => {
 
 const texte = [
 
-    "Unser erster gemeinsamer Ausflug nach Dänemark ❤️",
+    "Ein Spieleabend, der viel Spaß brachte",
 
     "Gemeinsame Spaziergänge, Zoo und neue Eindrücke sammeln 🦁",
 
-    "Gemütliche Abende und schöne Momente zusammen 🌙"
+    "Eine spaßige Pause im Zoo"
 
 ];
 
