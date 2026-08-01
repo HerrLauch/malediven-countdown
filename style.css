@@ -2264,3 +2264,57 @@ body.story-background{
     }
 
 }
+/* ===========================
+   Erinnerungs Bilder Slider
+=========================== */
+
+.memory-slider{
+
+    position:relative;
+
+    max-width:700px;
+
+    height:400px;
+
+    margin:40px auto;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.35);
+
+}
+
+
+.memory-image{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:30px;
+
+    opacity:0;
+
+    transition:opacity 1.5s ease;
+
+}
+
+
+/* erstes Bild sichtbar */
+
+.memory-image:first-child{
+
+    opacity:1;
+
+}
