@@ -554,3 +554,40 @@ countdown();
 
 
 setInterval(countdown, 1000);
+/* ===========================
+   Erinnerungs Bilder Slider
+=========================== */
+
+
+document.querySelectorAll(".memory-slider").forEach(slider => {
+
+
+    const bilder = slider.querySelectorAll(".memory-image");
+
+
+    let aktuellesBild = 0;
+
+
+    setInterval(() => {
+
+
+        bilder[aktuellesBild].style.opacity = "0";
+
+
+        aktuellesBild++;
+
+
+        if(aktuellesBild >= bilder.length){
+
+            aktuellesBild = 0;
+
+        }
+
+
+        bilder[aktuellesBild].style.opacity = "1";
+
+
+    },5000);
+
+
+});
