@@ -2351,7 +2351,7 @@ body.story-background{
 
     position:absolute;
 
-    bottom:15px;
+    bottom:12px;
 
     left:50%;
 
@@ -2359,7 +2359,7 @@ body.story-background{
 
     display:flex;
 
-    gap:10px;
+    gap:12px;
 
     z-index:10;
 
@@ -2368,20 +2368,21 @@ body.story-background{
 
 .memory-dots span{
 
-    width:12px;
+    width:14px;
 
-    height:12px;
+    height:14px;
 
     border-radius:50%;
 
     background:white;
 
-    opacity:.5;
+    opacity:.6;
 
-    display:block;
+    border:2px solid rgba(0,0,0,.3);
+
+    transition:.3s;
 
 }
-
 
 .memory-dots span.active{
 
