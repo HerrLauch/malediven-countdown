@@ -571,15 +571,9 @@ document.querySelectorAll(".memory-slider").forEach(slider => {
     const beschriftung = slider.querySelector(".memory-caption");
 
 
-    const texte = [
-
-        "Unser erster gemeinsamer Ausflug nach Dänemark ❤️",
-
-        "Neue Eindrücke sammeln und gemeinsam erleben 🦁",
-
-        "Gemütliche Abende und schöne Erinnerungen im Whirlpool 🌙"
-
-    ];
+    const texte = JSON.parse(
+        slider.dataset.texts
+    );
 
 
     let aktuellesBild = 0;
@@ -587,6 +581,7 @@ document.querySelectorAll(".memory-slider").forEach(slider => {
 
 
     function zeigeBild(){
+
 
         bilder.forEach((bild,index)=>{
 
@@ -614,6 +609,7 @@ document.querySelectorAll(".memory-slider").forEach(slider => {
             texte[aktuellesBild];
 
         }
+
 
     }
 
