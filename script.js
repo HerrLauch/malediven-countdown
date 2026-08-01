@@ -575,9 +575,9 @@ const texte = [
 
     "Unser erster gemeinsamer Ausflug nach Dänemark ❤️",
 
-    "Neue Eindrücke sammeln und gemeinsam erleben 🦁",
+    "Gemeinsame Spaziergänge, Zoo und neue Eindrücke sammeln 🦁",
 
-    "Gemütliche Abende und schöne Erinnerungen im Whirlpool 🌙"
+    "Gemütliche Abende und schöne Momente zusammen 🌙"
 
 ];
 
