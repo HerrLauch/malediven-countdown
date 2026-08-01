@@ -2318,3 +2318,78 @@ body.story-background{
     opacity:1;
 
 }
+/* ===========================
+   Erinnerungs Slider Erweiterung
+=========================== */
+
+
+.memory-caption{
+
+    position:absolute;
+
+    bottom:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:85%;
+
+    padding:15px 20px;
+
+    text-align:center;
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(8px);
+
+    border-radius:20px;
+
+    font-size:1.1rem;
+
+    color:white;
+
+}
+
+
+/* Punkte unter dem Bild */
+
+.memory-dots{
+
+    position:absolute;
+
+    bottom:15px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+
+.memory-dots span{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.5);
+
+    transition:.3s;
+
+}
+
+
+.memory-dots span.active{
+
+    background:white;
+
+    transform:scale(1.3);
+
+}
