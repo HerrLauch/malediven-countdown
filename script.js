@@ -566,14 +566,60 @@ document.querySelectorAll(".memory-slider").forEach(slider => {
 
     const bilder = slider.querySelectorAll(".memory-image");
 
+    const punkte = slider.querySelectorAll(".memory-dots span");
+
+    const beschriftung = slider.querySelector(".memory-caption");
+
+
+    const texte = [
+
+        "Unser erster gemeinsamer Ausflug nach Dänemark ❤️",
+
+        "Neue Eindrücke sammeln und gemeinsam erleben 🦁",
+
+        "Gemütliche Abende und schöne Erinnerungen im Whirlpool 🌙"
+
+    ];
+
 
     let aktuellesBild = 0;
 
 
-    setInterval(() => {
+
+    function zeigeBild(){
+
+        bilder.forEach((bild,index)=>{
+
+            bild.style.opacity =
+            index === aktuellesBild ? "1" : "0";
+
+        });
 
 
-        bilder[aktuellesBild].style.opacity = "0";
+
+        punkte.forEach((punkt,index)=>{
+
+            punkt.classList.toggle(
+                "active",
+                index === aktuellesBild
+            );
+
+        });
+
+
+
+        if(beschriftung){
+
+            beschriftung.textContent =
+            texte[aktuellesBild];
+
+        }
+
+    }
+
+
+
+    setInterval(()=>{
 
 
         aktuellesBild++;
@@ -586,10 +632,14 @@ document.querySelectorAll(".memory-slider").forEach(slider => {
         }
 
 
-        bilder[aktuellesBild].style.opacity = "1";
+        zeigeBild();
 
 
     },5000);
+
+
+
+    zeigeBild();
 
 
 });
