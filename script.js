@@ -48,25 +48,6 @@ function closeImage() {
 
 }
 
-document.querySelectorAll(".memory-slider").forEach(slider => {
-
-    const bilder = slider.querySelectorAll(".memory-image");
-
-    bilder.forEach(bild => {
-
-        bild.addEventListener("click", () => {
-
-            if(bild.style.opacity === "1"){
-
-                openImage(bild.src);
-
-            }
-
-        });
-
-    });
-
-});
 /* ===========================
    Countdown
 =========================== */
@@ -605,7 +586,15 @@ const texte = [
             index === aktuellesBild ? "1" : "0";
 
         });
+        bilder.forEach((bild,index)=>{
 
+            bild.onclick = () => {
+
+                openImage(bild.src);
+
+            };
+
+        });
 
 
 punkte.forEach((punkt,index)=>{
