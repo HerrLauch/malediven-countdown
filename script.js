@@ -48,11 +48,21 @@ function closeImage() {
 
 }
 
-document.querySelectorAll(".gallery-image").forEach(image => {
+document.querySelectorAll(".memory-slider").forEach(slider => {
 
-    image.addEventListener("click", () => {
+    const bilder = slider.querySelectorAll(".memory-image");
 
-        openImage(image.src);
+    bilder.forEach(bild => {
+
+        bild.addEventListener("click", () => {
+
+            if(bild.style.opacity === "1"){
+
+                openImage(bild.src);
+
+            }
+
+        });
 
     });
 
