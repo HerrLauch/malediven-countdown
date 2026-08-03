@@ -598,14 +598,27 @@ const texte = [
 
 
 
-        punkte.forEach((punkt,index)=>{
+punkte.forEach((punkt,index)=>{
 
-            punkt.classList.toggle(
-                "active",
-                index === aktuellesBild
-            );
+    punkt.classList.toggle(
+        "active",
+        index === aktuellesBild
+    );
 
-        });
+});
+
+
+punkte.forEach((punkt, index) => {
+
+    punkt.addEventListener("click", () => {
+
+        aktuellesBild = index;
+
+        zeigeBild();
+
+    });
+
+});
 
 
 
