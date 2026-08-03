@@ -616,6 +616,8 @@ punkte.forEach((punkt, index) => {
 
         zeigeBild();
 
+        starteSlider();
+
     });
 
 });
@@ -634,7 +636,15 @@ punkte.forEach((punkt, index) => {
 
 
 
-    setInterval(()=>{
+let timer;
+
+
+function starteSlider(){
+
+    clearInterval(timer);
+
+
+    timer = setInterval(()=>{
 
 
         aktuellesBild++;
@@ -651,6 +661,11 @@ punkte.forEach((punkt, index) => {
 
 
     },5000);
+
+}
+
+
+starteSlider();
 
 
 
