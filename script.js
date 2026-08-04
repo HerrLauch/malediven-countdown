@@ -592,12 +592,12 @@ bilder.forEach((bild,index)=>{
     if(index === aktuellesBild){
 
         bild.style.opacity = "1";
-        bild.style.pointerEvents = "auto";
+        bild.style.zIndex = "2";
 
     } else {
 
         bild.style.opacity = "0";
-        bild.style.pointerEvents = "none";
+        bild.style.zIndex = "1";
 
     }
 
