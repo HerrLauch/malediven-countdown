@@ -2298,7 +2298,6 @@ body.story-background{
 
 }
 
-
 .memory-image{
 
     position:absolute;
@@ -2314,8 +2313,6 @@ body.story-background{
     border-radius:30px;
 
     opacity:0;
-
-    pointer-events:none;
 
     transition:opacity 1.5s ease;
 
