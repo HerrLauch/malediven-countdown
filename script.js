@@ -586,15 +586,21 @@ const texte = [
             index === aktuellesBild ? "1" : "0";
 
         });
-        bilder.forEach((bild,index)=>{
+bilder.forEach((bild,index)=>{
 
-            bild.onclick = () => {
+    if(index === aktuellesBild){
 
-                openImage(bild.src);
+        bild.style.opacity = "1";
+        bild.style.pointerEvents = "auto";
 
-            };
+    } else {
 
-        });
+        bild.style.opacity = "0";
+        bild.style.pointerEvents = "none";
+
+    }
+
+});
 
 
 punkte.forEach((punkt,index)=>{
