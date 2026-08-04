@@ -30,7 +30,6 @@ if(!countdownBox){
 /* ===========================
    Bilder Viewer
 =========================== */
-
 function openImage(src) {
 
     if(!bigImage || !imageViewer) return;
@@ -38,6 +37,7 @@ function openImage(src) {
     bigImage.src = src;
 
     imageViewer.style.display = "flex";
+    document.body.style.overflow = "hidden";
 
 }
 
@@ -45,6 +45,7 @@ function openImage(src) {
 function closeImage() {
 
     imageViewer.style.display = "none";
+    document.body.style.overflow = "auto";
 
 }
 
