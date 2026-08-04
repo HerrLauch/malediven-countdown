@@ -602,7 +602,15 @@ bilder.forEach((bild,index)=>{
     }
 
 });
+bilder.forEach((bild, index) => {
 
+    bild.onclick = () => {
+
+        openImage(bilder[aktuellesBild].src);
+
+    };
+
+});
 
 punkte.forEach((punkt,index)=>{
 
