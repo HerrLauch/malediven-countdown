@@ -558,7 +558,22 @@ document.querySelectorAll(".memory-slider").forEach(slider => {
 
     const bilder = slider.querySelectorAll(".memory-image");
 
-    const punkte = slider.querySelectorAll(".memory-dots span");
+    const dotsContainer = slider.querySelector(".memory-dots");
+
+bilder.forEach((bild, index) => {
+    const punkt = document.createElement("span");
+
+    punkt.addEventListener("click", () => {
+        aktuellesBild = index;
+        zeigeBild();
+        starteSlider();
+    });
+
+    dotsContainer.appendChild(punkt);
+});
+
+const punkte = dotsContainer.querySelectorAll("span");
+
 
     const beschriftung = slider.querySelector(".memory-caption");
 
