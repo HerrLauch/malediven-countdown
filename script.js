@@ -599,363 +599,252 @@ if ("IntersectionObserver" in window) {
    12. MEMORY-SLIDER
    ===================================================== */
 
-/*
-   Jeder .memory-slider auf der Seite
-   bekommt automatisch seinen eigenen Slider.
+document.querySelectorAll(".memory-slider").forEach(function (slider) {
 
-   Dadurch können Dänemark, China Lights,
-   Spieleabend, Paar, Heidelberg usw.
-   unabhängig voneinander laufen.
-*/
+    const bilder = slider.querySelectorAll(".memory-image");
+    const dotsContainer = slider.querySelector(".memory-dots");
+    const beschriftung = slider.querySelector(".memory-caption");
 
-document
-    .querySelectorAll(".memory-slider")
-    .forEach(function (slider) {
+    if (!bilder.length) return;
+
+    let aktuellesBild = 0;
+    let timer = null;
+
+    /*
+       Texte für die Bilder
+    */
+
+    const texte = [
+        "Ein besonderer Moment unserer Reise ❤️",
+        "Gemeinsam unterwegs und neue Erinnerungen sammeln 🌴",
+        "Ein weiterer schöner Moment aus unserem Abenteuer 🌊"
+    ];
 
 
-        const bilder =
-            slider.querySelectorAll(
-                ".memory-image"
+    /* ---------------------------------------------
+       Slider vorbereiten
+    --------------------------------------------- */
+
+    slider.style.position = "relative";
+
+
+    bilder.forEach(function (bild, index) {
+
+        bild.style.position = "absolute";
+        bild.style.top = "0";
+        bild.style.left = "0";
+        bild.style.width = "100%";
+        bild.style.height = "100%";
+        bild.style.objectFit = "cover";
+        bild.style.opacity = index === 0 ? "1" : "0";
+        bild.style.visibility = index === 0 ? "visible" : "hidden";
+        bild.style.zIndex = index === 0 ? "2" : "1";
+        bild.style.transition = "opacity 0.6s ease";
+        bild.style.cursor = "pointer";
+
+        bild.addEventListener("click", function () {
+
+            openImage(
+                bild.currentSrc ||
+                bild.src
             );
 
-
-        const dotsContainer =
-            slider.querySelector(
-                ".memory-dots"
-            );
-
-
-        const beschriftung =
-            slider.querySelector(
-                ".memory-caption"
-            );
-
-
-        /*
-           Wenn keine Bilder vorhanden sind,
-           wird dieser Slider übersprungen.
-        */
-
-        if (!bilder.length) return;
-
-
-        let aktuellesBild = 0;
-
-        let timer = null;
-
-
-        /*
-           Texte für die Slider.
-
-           Falls ein Slider mehr Bilder besitzt
-           als Texte vorhanden sind, wird einfach
-           kein zusätzlicher Text angezeigt.
-        */
-
-        const texte = [
-
-            "Ein Spieleabend, der viel Spaß brachte",
-
-            "Gemeinsame Spaziergänge, Zoo und neue Eindrücke sammeln 🦁",
-
-            "Eine spaßige Pause im Zoo"
-
-        ];
-
-
-        /* ---------------------------------------------
-           Dots erstellen
-        --------------------------------------------- */
-
-        if (dotsContainer) {
-
-            dotsContainer.innerHTML = "";
-
-
-            bilder.forEach(
-                function (bild, index) {
-
-                    const punkt =
-                        document.createElement("span");
-
-
-                    punkt.setAttribute(
-                        "aria-label",
-                        "Bild " + (index + 1)
-                    );
-
-
-                    punkt.addEventListener(
-                        "click",
-                        function (event) {
-
-                            event.stopPropagation();
-
-                            aktuellesBild = index;
-
-                            zeigeBild();
-
-                            starteSlider();
-
-                        }
-                    );
-
-
-                    dotsContainer.appendChild(
-                        punkt
-                    );
-
-                }
-            );
-
-        }
-
-
-        const punkte =
-            dotsContainer
-                ? dotsContainer.querySelectorAll("span")
-                : [];
-
-
-        /* ---------------------------------------------
-           Bild anzeigen
-        --------------------------------------------- */
-
-        function zeigeBild() {
-
-
-            bilder.forEach(
-                function (bild, index) {
-
-                    if (
-                        index === aktuellesBild
-                    ) {
-
-                        bild.style.opacity = "1";
-
-                        bild.style.zIndex = "2";
-
-                    } else {
-
-                        bild.style.opacity = "0";
-
-                        bild.style.zIndex = "1";
-
-                    }
-
-                }
-            );
-
-
-            /*
-               Aktiven Punkt markieren
-            */
-
-            punkte.forEach(
-                function (punkt, index) {
-
-                    punkt.classList.toggle(
-                        "active",
-                        index === aktuellesBild
-                    );
-
-                }
-            );
-
-
-            /*
-               Bildunterschrift aktualisieren
-            */
-
-            if (beschriftung) {
-
-                if (
-                    texte[aktuellesBild]
-                ) {
-
-                    beschriftung.textContent =
-                        texte[aktuellesBild];
-
-                } else {
-
-                    beschriftung.textContent = "";
-
-                }
-
-            }
-
-        }
-
-
-        /* ---------------------------------------------
-           Automatischer Wechsel
-        --------------------------------------------- */
-
-        function starteSlider() {
-
-            if (timer) {
-
-                clearInterval(timer);
-
-            }
-
-
-            timer = setInterval(
-                function () {
-
-                    aktuellesBild++;
-
-
-                    if (
-                        aktuellesBild >= bilder.length
-                    ) {
-
-                        aktuellesBild = 0;
-
-                    }
-
-
-                    zeigeBild();
-
-                },
-                5000
-            );
-
-        }
-
-
-        /* ---------------------------------------------
-           Bilder anklickbar machen
-        --------------------------------------------- */
-
-        bilder.forEach(
-            function (bild) {
-
-                bild.style.cursor = "pointer";
-
-
-                bild.addEventListener(
-                    "click",
-                    function () {
-
-                        openImage(
-                            bild.currentSrc ||
-                            bild.src
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-        /* ---------------------------------------------
-           Ersten Zustand anzeigen
-        --------------------------------------------- */
-
-        zeigeBild();
-
-
-        starteSlider();
-
+        });
 
     });
+
+
+    /* ---------------------------------------------
+       Dots erstellen
+    --------------------------------------------- */
+
+    if (dotsContainer) {
+
+        dotsContainer.innerHTML = "";
+
+        bilder.forEach(function (bild, index) {
+
+            const punkt = document.createElement("span");
+
+            punkt.setAttribute(
+                "aria-label",
+                "Bild " + (index + 1)
+            );
+
+            punkt.addEventListener("click", function (event) {
+
+                event.stopPropagation();
+
+                aktuellesBild = index;
+
+                zeigeBild();
+
+                starteSlider();
+
+            });
+
+            dotsContainer.appendChild(punkt);
+
+        });
+
+    }
+
+
+    const punkte = dotsContainer
+        ? dotsContainer.querySelectorAll("span")
+        : [];
+
+
+    /* ---------------------------------------------
+       Bild anzeigen
+    --------------------------------------------- */
+
+    function zeigeBild() {
+
+        bilder.forEach(function (bild, index) {
+
+            const aktiv =
+                index === aktuellesBild;
+
+            bild.style.opacity =
+                aktiv ? "1" : "0";
+
+            bild.style.visibility =
+                aktiv ? "visible" : "hidden";
+
+            bild.style.zIndex =
+                aktiv ? "2" : "1";
+
+        });
+
+
+        /* Aktiven Punkt markieren */
+
+        punkte.forEach(function (punkt, index) {
+
+            punkt.classList.toggle(
+                "active",
+                index === aktuellesBild
+            );
+
+        });
+
+
+        /* Bildunterschrift */
+
+        if (beschriftung) {
+
+            if (texte[aktuellesBild]) {
+
+                beschriftung.textContent =
+                    texte[aktuellesBild];
+
+            }
+
+        }
+
+    }
+
+
+    /* ---------------------------------------------
+       Automatischer Wechsel
+    --------------------------------------------- */
+
+    function starteSlider() {
+
+        if (timer) {
+
+            clearInterval(timer);
+
+        }
+
+        timer = setInterval(function () {
+
+            aktuellesBild++;
+
+            if (
+                aktuellesBild >= bilder.length
+            ) {
+
+                aktuellesBild = 0;
+
+            }
+
+            zeigeBild();
+
+        }, 5000);
+
+    }
+
+
+    /* ---------------------------------------------
+       Tastatursteuerung
+    --------------------------------------------- */
+
+    slider.setAttribute(
+        "tabindex",
+        "0"
+    );
+
+
+    slider.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "ArrowRight") {
+
+                aktuellesBild++;
+
+                if (
+                    aktuellesBild >= bilder.length
+                ) {
+
+                    aktuellesBild = 0;
+
+                }
+
+                zeigeBild();
+                starteSlider();
+
+            }
+
+
+            if (event.key === "ArrowLeft") {
+
+                aktuellesBild--;
+
+                if (
+                    aktuellesBild < 0
+                ) {
+
+                    aktuellesBild =
+                        bilder.length - 1;
+
+                }
+
+                zeigeBild();
+                starteSlider();
+
+            }
+
+        }
+    );
+
+
+    /* ---------------------------------------------
+       Ersten Zustand anzeigen
+    --------------------------------------------- */
+
+    zeigeBild();
+
+    starteSlider();
+
+});
 
 
 /* =====================================================
-   13. TASTATURBEDIENUNG FÜR SLIDER
+   13. ENDE MEMORY-SLIDER
    ===================================================== */
-
-/*
-   Auf Desktop kann man mit den Pfeiltasten
-   den aktuell fokussierten Slider bedienen.
-*/
-
-document
-    .querySelectorAll(".memory-slider")
-    .forEach(function (slider) {
-
-        slider.setAttribute(
-            "tabindex",
-            "0"
-        );
-
-
-        const bilder =
-            slider.querySelectorAll(
-                ".memory-image"
-            );
-
-
-        if (!bilder.length) return;
-
-
-        let bildIndex = 0;
-
-
-        slider.addEventListener(
-            "keydown",
-            function (event) {
-
-                if (event.key === "ArrowRight") {
-
-                    bildIndex++;
-
-
-                    if (
-                        bildIndex >= bilder.length
-                    ) {
-
-                        bildIndex = 0;
-
-                    }
-
-                    bilder.forEach(
-                        function (bild, index) {
-
-                            bild.style.opacity =
-                                index === bildIndex
-                                    ? "1"
-                                    : "0";
-
-                        }
-                    );
-
-                }
-
-
-                if (event.key === "ArrowLeft") {
-
-                    bildIndex--;
-
-
-                    if (bildIndex < 0) {
-
-                        bildIndex =
-                            bilder.length - 1;
-
-                    }
-
-
-                    bilder.forEach(
-                        function (bild, index) {
-
-                            bild.style.opacity =
-                                index === bildIndex
-                                    ? "1"
-                                    : "0";
-
-                        }
-                    );
-
-                }
-
-            }
-        );
-
-    });
-
 
 /* =====================================================
    14. START
