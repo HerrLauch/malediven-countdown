@@ -603,7 +603,6 @@ document.querySelectorAll(".memory-slider").forEach(function (slider) {
 
     const bilder = slider.querySelectorAll(".memory-image");
     const dotsContainer = slider.querySelector(".memory-dots");
-    const beschriftung = slider.querySelector(".memory-caption");
 
     if (!bilder.length) return;
 
@@ -611,15 +610,6 @@ document.querySelectorAll(".memory-slider").forEach(function (slider) {
     let timer = null;
 
     /*
-       Texte für die Bilder
-    */
-
-    const texte = [
-        "Ein besonderer Moment unserer Reise ❤️",
-        "Gemeinsam unterwegs und neue Erinnerungen sammeln 🌴",
-        "Ein weiterer schöner Moment aus unserem Abenteuer 🌊"
-    ];
-
 
     /* ---------------------------------------------
        Slider vorbereiten
@@ -730,18 +720,6 @@ document.querySelectorAll(".memory-slider").forEach(function (slider) {
         });
 
 
-        /* Bildunterschrift */
-
-        if (beschriftung) {
-
-            if (texte[aktuellesBild]) {
-
-                beschriftung.textContent =
-                    texte[aktuellesBild];
-
-            }
-
-        }
 
     }
 
