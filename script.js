@@ -601,10 +601,17 @@ if ("IntersectionObserver" in window) {
 
 document.querySelectorAll(".memory-slider").forEach(function (slider) {
 
-    const bilder = slider.querySelectorAll(".memory-image");
-    const dotsContainer = slider.querySelector(".memory-dots");
+const bilder = slider.querySelectorAll(".memory-image");
+const dotsContainer = slider.querySelector(".memory-dots");
 
-    if (!bilder.length) return;
+const pfeilLinks =
+    slider.querySelector(".memory-arrow-left");
+
+const pfeilRechts =
+    slider.querySelector(".memory-arrow-right");
+
+if (!bilder.length) return;
+
 
     let aktuellesBild = 0;
     let timer = null;
