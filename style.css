@@ -2151,14 +2151,18 @@ section h3 {
     }
 
 
-    section {
+section {
 
-        margin: 55px auto;
+    width: 100%;
 
-        padding:
-            0 15px;
+    max-width: 100%;
 
-    }
+    margin: 55px auto;
+
+    padding:
+        0 15px;
+
+}
 
 
     .story {
@@ -2172,18 +2176,20 @@ section h3 {
     }
 
 
-    .story-intro {
+.story-intro {
 
-        margin:
-            45px 15px;
+    width: calc(100% - 30px);
 
-        padding:
-            35px 22px;
+    margin:
+        45px auto;
 
-        border-radius:
-            25px;
+    padding:
+        35px 22px;
 
-    }
+    border-radius:
+        25px;
+
+}
 
 
     .story-intro h1 {
