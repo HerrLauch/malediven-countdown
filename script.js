@@ -735,31 +735,83 @@ if (!bilder.length) return;
        Automatischer Wechsel
     --------------------------------------------- */
 
-    function starteSlider() {
+   function starteSlider() {
 
-        if (timer) {
+    if (timer) {
 
-            clearInterval(timer);
+        clearInterval(timer);
+
+    }
+
+    timer = setInterval(function () {
+
+        aktuellesBild++;
+
+        if (
+            aktuellesBild >= bilder.length
+        ) {
+
+            aktuellesBild = 0;
 
         }
 
-        timer = setInterval(function () {
+        zeigeBild();
 
-            aktuellesBild++;
+    }, 5000);
 
-            if (
-                aktuellesBild >= bilder.length
-            ) {
+}
 
-                aktuellesBild = 0;
 
-            }
+/* ---------------------------------------------
+   Pfeilsteuerung
+--------------------------------------------- */
 
-            zeigeBild();
+if (pfeilLinks) {
 
-        }, 5000);
+    pfeilLinks.addEventListener("click", function (event) {
 
-    }
+        event.stopPropagation();
+
+        aktuellesBild--;
+
+        if (aktuellesBild < 0) {
+
+            aktuellesBild =
+                bilder.length - 1;
+
+        }
+
+        zeigeBild();
+
+        starteSlider();
+
+    });
+
+}
+
+
+if (pfeilRechts) {
+
+    pfeilRechts.addEventListener("click", function (event) {
+
+        event.stopPropagation();
+
+        aktuellesBild++;
+
+        if (aktuellesBild >= bilder.length) {
+
+            aktuellesBild = 0;
+
+        }
+
+        zeigeBild();
+
+        starteSlider();
+
+    });
+
+}
+
 
 
     /* ---------------------------------------------
