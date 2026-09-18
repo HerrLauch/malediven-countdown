@@ -625,7 +625,7 @@ document.querySelectorAll(".memory-slider").forEach(function (slider) {
         bild.style.left = "0";
         bild.style.width = "100%";
         bild.style.height = "100%";
-        bild.style.objectFit = "cover";
+        bild.style.objectFit = "contain";
         bild.style.opacity = index === 0 ? "1" : "0";
         bild.style.visibility = index === 0 ? "visible" : "hidden";
         bild.style.zIndex = index === 0 ? "2" : "1";
