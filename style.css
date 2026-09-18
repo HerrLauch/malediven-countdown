@@ -551,42 +551,6 @@ section h3 {
 
 
 /* =====================================================
-   16. MEMORY CAPTION
-   ===================================================== */
-
-.memory-caption {
-
-    position: absolute;
-
-    left: 50%;
-
-    bottom: 55px;
-
-    transform: translateX(-50%);
-
-    width: 85%;
-
-    padding: 14px 20px;
-
-    background:
-        rgba(0,0,0,.48);
-
-    backdrop-filter: blur(8px);
-
-    -webkit-backdrop-filter: blur(8px);
-
-    border-radius: 20px;
-
-    font-size: 1rem;
-
-    line-height: 1.5;
-
-    z-index: 5;
-
-}
-
-
-/* =====================================================
    17. MEMORY DOTS
    ===================================================== */
 
@@ -2678,30 +2642,6 @@ section h3 {
     transform: scale(1.25);
 }
 
-
-/* Bildunterschrift */
-
-.memory-caption {
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: 45px;
-
-    padding: 12px 20px;
-
-    text-align: center;
-
-    color: white;
-
-    background:
-        linear-gradient(
-            transparent,
-            rgba(0,0,0,0.75)
-        );
-
-    z-index: 5;
-}
 
 
 /* Handy */
