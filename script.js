@@ -1,21 +1,27 @@
 /* =====================================================
+   DUNJA ❤️ KEVIN
    Malediven 2026
-   Dunja ❤️ Kevin
-   ===================================================== */
+   script.js
+===================================================== */
 
 
 /* =====================================================
    1. REISEZEITEN
-   ===================================================== */
+===================================================== */
 
-const zielDatum = new Date("2026-08-04T15:00:00+02:00");
-const ankunftAngaga = new Date("2026-08-06T08:00:00+05:00");
-const endeUrlaub = new Date("2026-08-20T08:00:00+05:00");
+const zielDatum =
+    new Date("2026-08-04T15:00:00+02:00");
+
+const ankunftAngaga =
+    new Date("2026-08-06T08:00:00+05:00");
+
+const endeUrlaub =
+    new Date("2026-08-20T08:00:00+05:00");
 
 
 /* =====================================================
    2. STATUS
-   ===================================================== */
+===================================================== */
 
 let unterwegsAktiv = false;
 let urlaubsmodusAktiv = false;
@@ -24,20 +30,27 @@ let erinnerungAktiv = false;
 
 /* =====================================================
    3. ELEMENTE
-   ===================================================== */
+===================================================== */
 
-const countdownBox = document.getElementById("countdown");
-const imageViewer = document.getElementById("imageViewer");
-const bigImage = document.getElementById("bigImage");
+const countdownBox =
+    document.getElementById("countdown");
+
+const imageViewer =
+    document.getElementById("imageViewer");
+
+const bigImage =
+    document.getElementById("bigImage");
 
 
 /* =====================================================
    4. BILD-VIEWER
-   ===================================================== */
+===================================================== */
 
 function openImage(src) {
 
-    if (!imageViewer || !bigImage) return;
+    if (!imageViewer || !bigImage || !src) {
+        return;
+    }
 
     bigImage.src = src;
 
@@ -49,63 +62,75 @@ function openImage(src) {
 
 function closeImage() {
 
-    if (!imageViewer) return;
+    if (!imageViewer) {
+        return;
+    }
 
     imageViewer.style.display = "none";
 
     document.body.style.overflow = "";
+
+    if (bigImage) {
+        bigImage.src = "";
+    }
 }
 
 
-/*
-   Klick auf den dunklen Hintergrund schließt
-   den Bild-Viewer.
-*/
+/* -----------------------------------------------------
+   Klick auf Hintergrund schließt Viewer
+----------------------------------------------------- */
 
 if (imageViewer) {
 
-    imageViewer.addEventListener("click", function (event) {
+    imageViewer.addEventListener(
+        "click",
+        function (event) {
 
-        if (event.target === imageViewer) {
-            closeImage();
+            if (event.target === imageViewer) {
+                closeImage();
+            }
+
         }
-
-    });
+    );
 
 }
 
 
-/*
-   ESC-Taste schließt den Bild-Viewer.
-*/
+/* -----------------------------------------------------
+   ESC schließt Viewer
+----------------------------------------------------- */
 
-document.addEventListener("keydown", function (event) {
+document.addEventListener(
+    "keydown",
+    function (event) {
 
-    if (event.key === "Escape") {
-        closeImage();
+        if (event.key === "Escape") {
+            closeImage();
+        }
+
     }
-
-});
+);
 
 
 /* =====================================================
    5. COUNTDOWN
-   ===================================================== */
+===================================================== */
 
 function countdown() {
 
-    if (!countdownBox) return;
+    if (!countdownBox) {
+        return;
+    }
 
     const jetzt = new Date();
 
-    const unterschied = zielDatum - jetzt;
+    const unterschied =
+        zielDatum - jetzt;
 
 
-    /*
-       -----------------------------------------------
+    /* -------------------------------------------------
        VOR DER REISE
-       -----------------------------------------------
-    */
+    ------------------------------------------------- */
 
     if (unterschied > 0) {
 
@@ -115,12 +140,10 @@ function countdown() {
     }
 
 
-    /*
-       -----------------------------------------------
+    /* -------------------------------------------------
        REISE LÄUFT
        Deutschland → Abu Dhabi → Malediven
-       -----------------------------------------------
-    */
+    ------------------------------------------------- */
 
     if (
         jetzt >= zielDatum &&
@@ -139,11 +162,9 @@ function countdown() {
     }
 
 
-    /*
-       -----------------------------------------------
+    /* -------------------------------------------------
        URLAUB AUF ANGAGA
-       -----------------------------------------------
-    */
+    ------------------------------------------------- */
 
     if (
         jetzt >= ankunftAngaga &&
@@ -156,17 +177,24 @@ function countdown() {
 
             zeigeUrlaubsmodus();
 
+        } else {
+
+            /*
+               Urlaubstag trotzdem aktualisieren,
+               falls die Seite lange geöffnet bleibt.
+            */
+
+            aktualisiereUrlaubstag();
+
         }
 
         return;
     }
 
 
-    /*
-       -----------------------------------------------
+    /* -------------------------------------------------
        NACH DEM URLAUB
-       -----------------------------------------------
-    */
+    ------------------------------------------------- */
 
     if (jetzt >= endeUrlaub) {
 
@@ -185,35 +213,41 @@ function countdown() {
 
 /* =====================================================
    6. COUNTDOWN ANZEIGEN
-   ===================================================== */
+===================================================== */
 
 function zeigeCountdown(unterschied) {
 
-    if (!countdownBox) return;
+    if (!countdownBox) {
+        return;
+    }
 
 
-    const tage = Math.floor(
-        unterschied /
-        (1000 * 60 * 60 * 24)
-    );
+    const tage =
+        Math.floor(
+            unterschied /
+            (1000 * 60 * 60 * 24)
+        );
 
 
-    const stunden = Math.floor(
-        unterschied /
-        (1000 * 60 * 60)
-    ) % 24;
+    const stunden =
+        Math.floor(
+            unterschied /
+            (1000 * 60 * 60)
+        ) % 24;
 
 
-    const minuten = Math.floor(
-        unterschied /
-        (1000 * 60)
-    ) % 60;
+    const minuten =
+        Math.floor(
+            unterschied /
+            (1000 * 60)
+        ) % 60;
 
 
-    const sekunden = Math.floor(
-        unterschied /
-        1000
-    ) % 60;
+    const sekunden =
+        Math.floor(
+            unterschied /
+            1000
+        ) % 60;
 
 
     countdownBox.innerHTML = `
@@ -230,7 +264,6 @@ function zeigeCountdown(unterschied) {
 
         </div>
 
-
         <div class="time-box">
 
             <div class="number">
@@ -243,7 +276,6 @@ function zeigeCountdown(unterschied) {
 
         </div>
 
-
         <div class="time-box">
 
             <div class="number">
@@ -255,7 +287,6 @@ function zeigeCountdown(unterschied) {
             </div>
 
         </div>
-
 
         <div class="time-box">
 
@@ -275,11 +306,13 @@ function zeigeCountdown(unterschied) {
 
 /* =====================================================
    7. REISE UNTERWEGS
-   ===================================================== */
+===================================================== */
 
 function zeigeUnterwegs() {
 
-    if (!countdownBox) return;
+    if (!countdownBox) {
+        return;
+    }
 
 
     countdownBox.innerHTML = `
@@ -317,36 +350,40 @@ function zeigeUnterwegs() {
 
 /* =====================================================
    8. URLAUBSMODUS
-   ===================================================== */
+===================================================== */
 
-function zeigeUrlaubsmodus() {
-
-    if (!countdownBox) return;
-
+function ermittleUrlaubstag() {
 
     const heute = new Date();
 
 
-    const urlaubstag = Math.floor(
-
-        (
-            heute - ankunftAngaga
-        ) /
-        (1000 * 60 * 60 * 24)
-
-    ) + 1;
+    const vergangeneZeit =
+        heute - ankunftAngaga;
 
 
-    /*
-       Sicherheit:
-       Der angezeigte Tag soll niemals kleiner als 1
-       oder größer als 14 sein.
-    */
+    const urlaubstag =
+        Math.floor(
+            vergangeneZeit /
+            (1000 * 60 * 60 * 24)
+        ) + 1;
 
-    const tag = Math.max(
+
+    return Math.max(
         1,
         Math.min(14, urlaubstag)
     );
+}
+
+
+function zeigeUrlaubsmodus() {
+
+    if (!countdownBox) {
+        return;
+    }
+
+
+    const tag =
+        ermittleUrlaubstag();
 
 
     countdownBox.innerHTML = `
@@ -362,11 +399,15 @@ function zeigeUrlaubsmodus() {
             </h2>
 
             <p>
-                ❤️ Tag ${tag} von 14
+                ❤️ Tag
+                <span id="urlaubstag">
+                    ${tag}
+                </span>
+                von 14
             </p>
 
             <p>
-                🌴 Angaga Island Resort & Spa
+                🌴 Angaga Island Resort &amp; Spa
             </p>
 
             <p>
@@ -379,13 +420,35 @@ function zeigeUrlaubsmodus() {
 }
 
 
+/* -----------------------------------------------------
+   Urlaubstag aktualisieren
+----------------------------------------------------- */
+
+function aktualisiereUrlaubstag() {
+
+    const urlaubstagElement =
+        document.getElementById("urlaubstag");
+
+
+    if (!urlaubstagElement) {
+        return;
+    }
+
+
+    urlaubstagElement.textContent =
+        ermittleUrlaubstag();
+}
+
+
 /* =====================================================
    9. ERINNERUNG NACH DER REISE
-   ===================================================== */
+===================================================== */
 
 function zeigeErinnerung() {
 
-    if (!countdownBox) return;
+    if (!countdownBox) {
+        return;
+    }
 
 
     countdownBox.classList.add(
@@ -393,51 +456,52 @@ function zeigeErinnerung() {
     );
 
 
-    setTimeout(function () {
+    setTimeout(
+        function () {
 
-        countdownBox.innerHTML = `
+            countdownBox.innerHTML = `
 
-            <div class="holiday-mode">
+                <div class="holiday-mode">
 
-                <div class="holiday-icon">
-                    ❤️
+                    <div class="holiday-icon">
+                        ❤️
+                    </div>
+
+                    <h2>
+                        Danke für diese Reise
+                    </h2>
+
+                    <p>
+                        🌴 Die Malediven bleiben
+                        für immer Teil unserer Geschichte.
+                    </p>
+
+                    <p>
+                        📸 Erinnerungen fürs Leben
+                    </p>
+
+                    <p>
+                        ❤️ Kapitel 1 unserer Geschichte
+                    </p>
+
                 </div>
 
-                <h2>
-                    Danke für diese Reise
-                </h2>
-
-                <p>
-                    🌴 Die Malediven bleiben
-                    für immer Teil unserer Geschichte.
-                </p>
-
-                <p>
-                    📸 Erinnerungen fürs Leben
-                </p>
-
-                <p>
-                    ❤️ Kapitel 1 unserer Geschichte
-                </p>
-
-            </div>
-
-        `;
+            `;
 
 
-        countdownBox.classList.remove(
-            "countdown-hidden"
-        );
+            countdownBox.classList.remove(
+                "countdown-hidden"
+            );
 
-
-    }, 800);
-
+        },
+        800
+    );
 }
 
 
 /* =====================================================
    10. REISEANIMATION
-   ===================================================== */
+===================================================== */
 
 function starteReiseAnimation() {
 
@@ -445,15 +509,17 @@ function starteReiseAnimation() {
         document.getElementById("celebration");
 
 
-    if (!celebration) return;
+    if (!celebration) {
+        return;
+    }
 
 
     celebration.style.display = "flex";
 
 
-    /*
-       Konfetti
-    */
+    /* -------------------------------------------------
+       KONFETTI
+    ------------------------------------------------- */
 
     const confetti =
         document.getElementById("confetti");
@@ -475,13 +541,18 @@ function starteReiseAnimation() {
         ];
 
 
-        for (let i = 0; i < 100; i++) {
+        for (
+            let i = 0;
+            i < 100;
+            i++
+        ) {
 
             const piece =
                 document.createElement("div");
 
 
-            piece.className = "confetti";
+            piece.className =
+                "confetti";
 
 
             piece.style.left =
@@ -489,7 +560,9 @@ function starteReiseAnimation() {
 
 
             piece.style.animationDuration =
-                (Math.random() * 3 + 3) + "s";
+                (
+                    Math.random() * 3 + 3
+                ) + "s";
 
 
             piece.style.animationDelay =
@@ -499,7 +572,8 @@ function starteReiseAnimation() {
             piece.style.backgroundColor =
                 farben[
                     Math.floor(
-                        Math.random() * farben.length
+                        Math.random() *
+                        farben.length
                     )
                 ];
 
@@ -515,9 +589,9 @@ function starteReiseAnimation() {
     }
 
 
-    /*
-       Flugzeug
-    */
+    /* -------------------------------------------------
+       FLUGZEUG
+    ------------------------------------------------- */
 
     const plane =
         document.getElementById("plane");
@@ -525,19 +599,25 @@ function starteReiseAnimation() {
 
     if (plane) {
 
-        plane.style.animation = "none";
+        plane.style.animation =
+            "none";
 
-        plane.style.left = "-80px";
+        plane.style.left =
+            "-80px";
 
-        plane.style.opacity = "0";
+        plane.style.opacity =
+            "0";
 
 
-        setTimeout(function () {
+        setTimeout(
+            function () {
 
-            plane.style.animation =
-                "flyAcross 7s linear forwards";
+                plane.style.animation =
+                    "flyAcross 7s linear forwards";
 
-        }, 100);
+            },
+            100
+        );
 
     }
 
@@ -546,13 +626,17 @@ function starteReiseAnimation() {
 
 /* =====================================================
    11. SECTIONS SCROLL-ANIMATION
-   ===================================================== */
+===================================================== */
 
 const elemente =
-    document.querySelectorAll("section");
+    document.querySelectorAll(
+        "section"
+    );
 
 
-if ("IntersectionObserver" in window) {
+if (
+    "IntersectionObserver" in window
+) {
 
     const beobachter =
         new IntersectionObserver(
@@ -568,6 +652,16 @@ if ("IntersectionObserver" in window) {
 
                             eintrag.target.classList.add(
                                 "show"
+                            );
+
+                            /*
+                               Nicht weiter beobachten,
+                               nachdem die Section sichtbar
+                               geworden ist.
+                            */
+
+                            beobachter.unobserve(
+                                eintrag.target
                             );
 
                         }
@@ -587,7 +681,25 @@ if ("IntersectionObserver" in window) {
     elemente.forEach(
         function (element) {
 
-            beobachter.observe(element);
+            beobachter.observe(
+                element
+            );
+
+        }
+    );
+
+} else {
+
+    /*
+       Fallback für ältere Browser
+    */
+
+    elemente.forEach(
+        function (element) {
+
+            element.classList.add(
+                "show"
+            );
 
         }
     );
@@ -597,243 +709,328 @@ if ("IntersectionObserver" in window) {
 
 /* =====================================================
    12. MEMORY-SLIDER
-   ===================================================== */
+===================================================== */
 
-document.querySelectorAll(".memory-slider").forEach(function (slider) {
+document
+    .querySelectorAll(".memory-slider")
+    .forEach(
+        function (slider) {
 
-const bilder = slider.querySelectorAll(".memory-image");
-const dotsContainer = slider.querySelector(".memory-dots");
-
-const pfeilLinks =
-    slider.querySelector(".memory-arrow-left");
-
-const pfeilRechts =
-    slider.querySelector(".memory-arrow-right");
-
-if (!bilder.length) return;
+            const bilder =
+                slider.querySelectorAll(
+                    ".memory-image"
+                );
 
 
-    let aktuellesBild = 0;
-    let timer = null;
+            /*
+               Es muss mindestens ein Bild geben.
+            */
 
-    /*
-
-    /* ---------------------------------------------
-       Slider vorbereiten
-    --------------------------------------------- */
-
-    slider.style.position = "relative";
+            if (!bilder.length) {
+                return;
+            }
 
 
-    bilder.forEach(function (bild, index) {
+            const pfeilLinks =
+                slider.querySelector(
+                    ".memory-arrow-left"
+                );
 
-        bild.style.position = "absolute";
-        bild.style.top = "0";
-        bild.style.left = "0";
-        bild.style.width = "100%";
-        bild.style.height = "100%";
-        bild.style.objectFit = "contain";
-        bild.style.opacity = index === 0 ? "1" : "0";
-        bild.style.visibility = index === 0 ? "visible" : "hidden";
-        bild.style.zIndex = index === 0 ? "2" : "1";
-        bild.style.transition = "opacity 0.6s ease";
-        bild.style.cursor = "pointer";
 
-        bild.addEventListener("click", function () {
+            const pfeilRechts =
+                slider.querySelector(
+                    ".memory-arrow-right"
+                );
 
-            openImage(
-                bild.currentSrc ||
-                bild.src
+
+            /*
+               Es können durch ältere HTML-Versionen
+               mehrere .memory-dots vorhanden sein.
+               Wir verwenden deshalb den ersten Container
+               und entfernen überzählige Container.
+            */
+
+            const dotsContaineren =
+                slider.querySelectorAll(
+                    ".memory-dots"
+                );
+
+
+            let dotsContainer =
+                dotsContaineren.length
+                    ? dotsContaineren[0]
+                    : null;
+
+
+            if (
+                dotsContaineren.length > 1
+            ) {
+
+                for (
+                    let i = 1;
+                    i < dotsContaineren.length;
+                    i++
+                ) {
+
+                    dotsContaineren[i].remove();
+
+                }
+
+            }
+
+
+            /* -------------------------------------------------
+               SLIDER-VARIABLEN
+            ------------------------------------------------- */
+
+            let aktuellesBild = 0;
+
+            let timer = null;
+
+
+            const wechselzeit =
+                5000;
+
+
+            /* -------------------------------------------------
+               SLIDER VORBEREITEN
+            ------------------------------------------------- */
+
+            slider.style.position =
+                "relative";
+
+
+            bilder.forEach(
+                function (bild, index) {
+
+                    bild.style.position =
+                        "absolute";
+
+                    bild.style.top =
+                        "0";
+
+                    bild.style.left =
+                        "0";
+
+                    bild.style.width =
+                        "100%";
+
+                    bild.style.height =
+                        "100%";
+
+                    bild.style.objectFit =
+                        "contain";
+
+                    bild.style.opacity =
+                        index === 0
+                            ? "1"
+                            : "0";
+
+                    bild.style.visibility =
+                        index === 0
+                            ? "visible"
+                            : "hidden";
+
+                    bild.style.zIndex =
+                        index === 0
+                            ? "2"
+                            : "1";
+
+                    bild.style.transition =
+                        "opacity 0.6s ease";
+
+                    bild.style.cursor =
+                        "pointer";
+
+
+                    /*
+                       Bild anklicken →
+                       großer Bild-Viewer
+                    */
+
+                    bild.addEventListener(
+                        "click",
+                        function () {
+
+                            openImage(
+                                bild.currentSrc ||
+                                bild.src
+                            );
+
+                        }
+                    );
+
+                }
             );
 
-        });
 
-    });
+            /* -------------------------------------------------
+               DOTS ERSTELLEN
+            ------------------------------------------------- */
 
+            if (dotsContainer) {
 
-    /* ---------------------------------------------
-       Dots erstellen
-    --------------------------------------------- */
+                dotsContainer.innerHTML =
+                    "";
 
-    if (dotsContainer) {
 
-        dotsContainer.innerHTML = "";
+                bilder.forEach(
+                    function (bild, index) {
 
-        bilder.forEach(function (bild, index) {
+                        const punkt =
+                            document.createElement(
+                                "span"
+                            );
 
-            const punkt = document.createElement("span");
 
-            punkt.setAttribute(
-                "aria-label",
-                "Bild " + (index + 1)
-            );
+                        punkt.setAttribute(
+                            "aria-label",
+                            "Bild " +
+                            (index + 1)
+                        );
 
-            punkt.addEventListener("click", function (event) {
 
-                event.stopPropagation();
+                        punkt.setAttribute(
+                            "role",
+                            "button"
+                        );
 
-                aktuellesBild = index;
 
-                zeigeBild();
+                        punkt.setAttribute(
+                            "tabindex",
+                            "0"
+                        );
 
-                starteSlider();
 
-            });
+                        punkt.addEventListener(
+                            "click",
+                            function (event) {
 
-            dotsContainer.appendChild(punkt);
+                                event.stopPropagation();
 
-        });
+                                aktuellesBild =
+                                    index;
 
-    }
+                                zeigeBild();
 
+                                starteSlider();
 
-    const punkte = dotsContainer
-        ? dotsContainer.querySelectorAll("span")
-        : [];
+                            }
+                        );
 
 
-    /* ---------------------------------------------
-       Bild anzeigen
-    --------------------------------------------- */
+                        punkt.addEventListener(
+                            "keydown",
+                            function (event) {
 
-    function zeigeBild() {
+                                if (
+                                    event.key ===
+                                    "Enter" ||
+                                    event.key ===
+                                    " "
+                                ) {
 
-        bilder.forEach(function (bild, index) {
+                                    event.preventDefault();
 
-            const aktiv =
-                index === aktuellesBild;
+                                    aktuellesBild =
+                                        index;
 
-            bild.style.opacity =
-                aktiv ? "1" : "0";
+                                    zeigeBild();
 
-            bild.style.visibility =
-                aktiv ? "visible" : "hidden";
+                                    starteSlider();
 
-            bild.style.zIndex =
-                aktiv ? "2" : "1";
+                                }
 
-        });
+                            }
+                        );
 
 
-        /* Aktiven Punkt markieren */
+                        dotsContainer.appendChild(
+                            punkt
+                        );
 
-        punkte.forEach(function (punkt, index) {
+                    }
+                );
 
-            punkt.classList.toggle(
-                "active",
-                index === aktuellesBild
-            );
+            }
 
-        });
 
+            let punkte =
+                dotsContainer
+                    ? dotsContainer.querySelectorAll(
+                        "span"
+                    )
+                    : [];
 
 
-    }
+            /* -------------------------------------------------
+               BILD ANZEIGEN
+            ------------------------------------------------- */
 
+            function zeigeBild() {
 
-    /* ---------------------------------------------
-       Automatischer Wechsel
-    --------------------------------------------- */
+                bilder.forEach(
+                    function (bild, index) {
 
-   function starteSlider() {
+                        const aktiv =
+                            index ===
+                            aktuellesBild;
 
-    if (timer) {
 
-        clearInterval(timer);
+                        bild.style.opacity =
+                            aktiv
+                                ? "1"
+                                : "0";
 
-    }
 
-    timer = setInterval(function () {
+                        bild.style.visibility =
+                            aktiv
+                                ? "visible"
+                                : "hidden";
 
-        aktuellesBild++;
 
-        if (
-            aktuellesBild >= bilder.length
-        ) {
+                        bild.style.zIndex =
+                            aktiv
+                                ? "2"
+                                : "1";
 
-            aktuellesBild = 0;
+                    }
+                );
 
-        }
 
-        zeigeBild();
+                /*
+                   Aktiven Punkt markieren
+                */
 
-    }, 5000);
+                punkte.forEach(
+                    function (
+                        punkt,
+                        index
+                    ) {
 
-}
+                        punkt.classList.toggle(
+                            "active",
+                            index ===
+                            aktuellesBild
+                        );
 
+                    }
+                );
 
-/* ---------------------------------------------
-   Pfeilsteuerung
---------------------------------------------- */
+            }
 
-if (pfeilLinks) {
 
-    pfeilLinks.addEventListener("click", function (event) {
+            /* -------------------------------------------------
+               NÄCHSTES BILD
+            ------------------------------------------------- */
 
-        event.stopPropagation();
-
-        aktuellesBild--;
-
-        if (aktuellesBild < 0) {
-
-            aktuellesBild =
-                bilder.length - 1;
-
-        }
-
-        zeigeBild();
-
-        starteSlider();
-
-    });
-
-}
-
-
-if (pfeilRechts) {
-
-    pfeilRechts.addEventListener("click", function (event) {
-
-        event.stopPropagation();
-
-        aktuellesBild++;
-
-        if (aktuellesBild >= bilder.length) {
-
-            aktuellesBild = 0;
-
-        }
-
-        zeigeBild();
-
-        starteSlider();
-
-    });
-
-}
-
-
-
-    /* ---------------------------------------------
-       Tastatursteuerung
-    --------------------------------------------- */
-
-    slider.setAttribute(
-        "tabindex",
-        "0"
-    );
-
-
-    slider.addEventListener(
-        "keydown",
-        function (event) {
-
-            if (event.key === "ArrowRight") {
+            function naechstesBild() {
 
                 aktuellesBild++;
 
                 if (
-                    aktuellesBild >= bilder.length
+                    aktuellesBild >=
+                    bilder.length
                 ) {
 
                     aktuellesBild = 0;
@@ -841,12 +1038,15 @@ if (pfeilRechts) {
                 }
 
                 zeigeBild();
-                starteSlider();
 
             }
 
 
-            if (event.key === "ArrowLeft") {
+            /* -------------------------------------------------
+               VORHERIGES BILD
+            ------------------------------------------------- */
+
+            function vorherigesBild() {
 
                 aktuellesBild--;
 
@@ -860,32 +1060,315 @@ if (pfeilRechts) {
                 }
 
                 zeigeBild();
-                starteSlider();
 
             }
+
+
+            /* -------------------------------------------------
+               AUTOMATISCHER WECHSEL
+            ------------------------------------------------- */
+
+            function starteSlider() {
+
+                /*
+                   Alten Timer löschen
+                */
+
+                if (timer) {
+
+                    clearInterval(timer);
+
+                }
+
+
+                /*
+                   Bei nur einem Bild
+                   keinen Timer starten.
+                */
+
+                if (
+                    bilder.length <= 1
+                ) {
+
+                    return;
+                }
+
+
+                timer =
+                    setInterval(
+                        function () {
+
+                            naechstesBild();
+
+                        },
+                        wechselzeit
+                    );
+
+            }
+
+
+            /* -------------------------------------------------
+               SLIDER STOPPEN
+            ------------------------------------------------- */
+
+            function stoppeSlider() {
+
+                if (timer) {
+
+                    clearInterval(timer);
+
+                    timer = null;
+
+                }
+
+            }
+
+
+            /* -------------------------------------------------
+               PFEIL LINKS
+            ------------------------------------------------- */
+
+            if (pfeilLinks) {
+
+                pfeilLinks.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.stopPropagation();
+
+                        vorherigesBild();
+
+                        starteSlider();
+
+                    }
+                );
+
+            }
+
+
+            /* -------------------------------------------------
+               PFEIL RECHTS
+            ------------------------------------------------- */
+
+            if (pfeilRechts) {
+
+                pfeilRechts.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.stopPropagation();
+
+                        naechstesBild();
+
+                        starteSlider();
+
+                    }
+                );
+
+            }
+
+
+            /* -------------------------------------------------
+               TASTATURSTEUERUNG
+            ------------------------------------------------- */
+
+            slider.setAttribute(
+                "tabindex",
+                "0"
+            );
+
+
+            slider.addEventListener(
+                "keydown",
+                function (event) {
+
+                    /*
+                       Wenn der Bild-Viewer offen ist,
+                       soll der Slider keine Pfeile
+                       verarbeiten.
+                    */
+
+                    if (
+                        imageViewer &&
+                        imageViewer.style.display ===
+                        "flex"
+                    ) {
+
+                        return;
+                    }
+
+
+                    if (
+                        event.key ===
+                        "ArrowRight"
+                    ) {
+
+                        event.preventDefault();
+
+                        naechstesBild();
+
+                        starteSlider();
+
+                    }
+
+
+                    if (
+                        event.key ===
+                        "ArrowLeft"
+                    ) {
+
+                        event.preventDefault();
+
+                        vorherigesBild();
+
+                        starteSlider();
+
+                    }
+
+                }
+            );
+
+
+            /* -------------------------------------------------
+               PAUSE BEI MOUSEOVER
+            ------------------------------------------------- */
+
+            slider.addEventListener(
+                "mouseenter",
+                function () {
+
+                    stoppeSlider();
+
+                }
+            );
+
+
+            slider.addEventListener(
+                "mouseleave",
+                function () {
+
+                    starteSlider();
+
+                }
+            );
+
+
+            /* -------------------------------------------------
+               TOUCH / MOBILE
+            ------------------------------------------------- */
+
+            let touchStartX = 0;
+
+            let touchEndX = 0;
+
+
+            slider.addEventListener(
+                "touchstart",
+                function (event) {
+
+                    if (
+                        event.touches.length !== 1
+                    ) {
+
+                        return;
+                    }
+
+
+                    touchStartX =
+                        event.touches[0].clientX;
+
+                },
+                {
+                    passive: true
+                }
+            );
+
+
+            slider.addEventListener(
+                "touchend",
+                function (event) {
+
+                    if (
+                        event.changedTouches.length !== 1
+                    ) {
+
+                        return;
+                    }
+
+
+                    touchEndX =
+                        event.changedTouches[0].clientX;
+
+
+                    const differenz =
+                        touchEndX -
+                        touchStartX;
+
+
+                    const mindestDistanz =
+                        50;
+
+
+                    if (
+                        Math.abs(differenz) >=
+                        mindestDistanz
+                    ) {
+
+                        if (
+                            differenz < 0
+                        ) {
+
+                            naechstesBild();
+
+                        } else {
+
+                            vorherigesBild();
+
+                        }
+
+                        starteSlider();
+
+                    }
+
+                },
+                {
+                    passive: true
+                }
+            );
+
+
+            /* -------------------------------------------------
+               ERSTEN ZUSTAND ANZEIGEN
+            ------------------------------------------------- */
+
+            zeigeBild();
+
+            starteSlider();
 
         }
     );
 
 
-    /* ---------------------------------------------
-       Ersten Zustand anzeigen
-    --------------------------------------------- */
-
-    zeigeBild();
-
-    starteSlider();
-
-});
-
-
 /* =====================================================
-   13. ENDE MEMORY-SLIDER
-   ===================================================== */
+   13. GLOBALE FUNKTIONEN FÜR HTML
+===================================================== */
+
+/*
+   Falls closeImage() direkt über onclick=""
+   im HTML aufgerufen wird, stellen wir sicher,
+   dass die Funktion global erreichbar bleibt.
+*/
+
+window.openImage =
+    openImage;
+
+window.closeImage =
+    closeImage;
+
 
 /* =====================================================
    14. START
-   ===================================================== */
+===================================================== */
 
 if (countdownBox) {
 
@@ -897,3 +1380,25 @@ if (countdownBox) {
     );
 
 }
+
+
+/* =====================================================
+   15. BILD-VIEWER BEI ESC / BODY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Escape" &&
+            imageViewer &&
+            imageViewer.style.display === "flex"
+        ) {
+
+            closeImage();
+
+        }
+
+    }
+);
