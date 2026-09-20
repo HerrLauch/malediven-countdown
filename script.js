@@ -9,6 +9,21 @@
    1. REISEZEITEN
 ===================================================== */
 
+/*
+   Alle Daten werden mit Zeitzonen angegeben.
+
+   zielDatum:
+   Beginn der Reise am 04.08.2026 um 15:00 Uhr deutscher Zeit.
+
+   ankunftAngaga:
+   Ankunft auf Angaga am 06.08.2026 um 08:00 Uhr
+   maledivischer Zeit.
+
+   endeUrlaub:
+   Ende des Urlaubs am 20.08.2026 um 08:00 Uhr
+   maledivischer Zeit.
+*/
+
 const zielDatum =
     new Date("2026-08-04T15:00:00+02:00");
 
@@ -46,6 +61,10 @@ const bigImage =
    4. BILD-VIEWER
 ===================================================== */
 
+/*
+   Öffnet ein Bild im großen Viewer.
+*/
+
 function openImage(src) {
 
     if (!imageViewer || !bigImage || !src) {
@@ -56,9 +75,18 @@ function openImage(src) {
 
     imageViewer.style.display = "flex";
 
+    /*
+       Scrollen der Seite verhindern,
+       solange der Viewer geöffnet ist.
+    */
+
     document.body.style.overflow = "hidden";
 }
 
+
+/*
+   Schließt den Bild-Viewer.
+*/
 
 function closeImage() {
 
@@ -77,7 +105,7 @@ function closeImage() {
 
 
 /* -----------------------------------------------------
-   Klick auf Hintergrund schließt Viewer
+   Klick auf den dunklen Hintergrund schließt Viewer
 ----------------------------------------------------- */
 
 if (imageViewer) {
@@ -85,6 +113,11 @@ if (imageViewer) {
     imageViewer.addEventListener(
         "click",
         function (event) {
+
+            /*
+               Nur wenn wirklich der Hintergrund
+               angeklickt wurde.
+            */
 
             if (event.target === imageViewer) {
                 closeImage();
@@ -104,8 +137,14 @@ document.addEventListener(
     "keydown",
     function (event) {
 
-        if (event.key === "Escape") {
+        if (
+            event.key === "Escape" &&
+            imageViewer &&
+            imageViewer.style.display === "flex"
+        ) {
+
             closeImage();
+
         }
 
     }
@@ -124,15 +163,15 @@ function countdown() {
 
     const jetzt = new Date();
 
-    const unterschied =
-        zielDatum - jetzt;
-
 
     /* -------------------------------------------------
        VOR DER REISE
     ------------------------------------------------- */
 
-    if (unterschied > 0) {
+    if (jetzt < zielDatum) {
+
+        const unterschied =
+            zielDatum - jetzt;
 
         zeigeCountdown(unterschied);
 
@@ -149,6 +188,10 @@ function countdown() {
         jetzt >= zielDatum &&
         jetzt < ankunftAngaga
     ) {
+
+        /*
+           Nur einmal aktivieren.
+        */
 
         if (!unterwegsAktiv) {
 
@@ -171,6 +214,10 @@ function countdown() {
         jetzt < endeUrlaub
     ) {
 
+        /*
+           Urlaubsmodus nur einmal aufbauen.
+        */
+
         if (!urlaubsmodusAktiv) {
 
             urlaubsmodusAktiv = true;
@@ -180,8 +227,8 @@ function countdown() {
         } else {
 
             /*
-               Urlaubstag trotzdem aktualisieren,
-               falls die Seite lange geöffnet bleibt.
+               Urlaubstag aktualisieren,
+               solange die Seite geöffnet bleibt.
             */
 
             aktualisiereUrlaubstag();
@@ -196,15 +243,14 @@ function countdown() {
        NACH DEM URLAUB
     ------------------------------------------------- */
 
-    if (jetzt >= endeUrlaub) {
+    if (
+        jetzt >= endeUrlaub &&
+        !erinnerungAktiv
+    ) {
 
-        if (!erinnerungAktiv) {
+        erinnerungAktiv = true;
 
-            erinnerungAktiv = true;
-
-            zeigeErinnerung();
-
-        }
+        zeigeErinnerung();
 
     }
 
@@ -222,32 +268,60 @@ function zeigeCountdown(unterschied) {
     }
 
 
+    const millisekundenProSekunde =
+        1000;
+
+    const sekundenProMinute =
+        60;
+
+    const minutenProStunde =
+        60;
+
+    const stundenProTag =
+        24;
+
+
+    const millisekundenProMinute =
+        millisekundenProSekunde *
+        sekundenProMinute;
+
+
+    const millisekundenProStunde =
+        millisekundenProMinute *
+        minutenProStunde;
+
+
+    const millisekundenProTag =
+        millisekundenProStunde *
+        stundenProTag;
+
+
     const tage =
         Math.floor(
             unterschied /
-            (1000 * 60 * 60 * 24)
+            millisekundenProTag
         );
 
 
     const stunden =
         Math.floor(
             unterschied /
-            (1000 * 60 * 60)
-        ) % 24;
+            millisekundenProStunde
+        ) % stundenProTag;
 
 
     const minuten =
         Math.floor(
             unterschied /
-            (1000 * 60)
-        ) % 60;
+            millisekundenProMinute
+        ) % minutenProStunde;
 
 
     const sekunden =
         Math.floor(
             unterschied /
-            1000
-        ) % 60;
+            millisekundenProSekunde
+        ) % sekundenProMinute;
 
 
     countdownBox.innerHTML = `
@@ -264,6 +338,7 @@ function zeigeCountdown(unterschied) {
 
         </div>
 
+
         <div class="time-box">
 
             <div class="number">
@@ -276,6 +351,7 @@ function zeigeCountdown(unterschied) {
 
         </div>
 
+
         <div class="time-box">
 
             <div class="number">
@@ -287,6 +363,7 @@ function zeigeCountdown(unterschied) {
             </div>
 
         </div>
+
 
         <div class="time-box">
 
@@ -344,7 +421,12 @@ function zeigeUnterwegs() {
     `;
 
 
+    /*
+       Animation nur einmal starten.
+    */
+
     starteReiseAnimation();
+
 }
 
 
@@ -354,26 +436,47 @@ function zeigeUnterwegs() {
 
 function ermittleUrlaubstag() {
 
-    const heute = new Date();
+    const heute =
+        new Date();
 
 
     const vergangeneZeit =
         heute - ankunftAngaga;
 
 
+    const millisekundenProTag =
+        1000 *
+        60 *
+        60 *
+        24;
+
+
     const urlaubstag =
         Math.floor(
             vergangeneZeit /
-            (1000 * 60 * 60 * 24)
+            millisekundenProTag
         ) + 1;
 
 
+    /*
+       Sicherheit:
+       Der Wert bleibt immer zwischen 1 und 14.
+    */
+
     return Math.max(
         1,
-        Math.min(14, urlaubstag)
+        Math.min(
+            14,
+            urlaubstag
+        )
     );
+
 }
 
+
+/* -----------------------------------------------------
+   Urlaubsmodus anzeigen
+----------------------------------------------------- */
 
 function zeigeUrlaubsmodus() {
 
@@ -417,6 +520,7 @@ function zeigeUrlaubsmodus() {
         </div>
 
     `;
+
 }
 
 
@@ -427,7 +531,9 @@ function zeigeUrlaubsmodus() {
 function aktualisiereUrlaubstag() {
 
     const urlaubstagElement =
-        document.getElementById("urlaubstag");
+        document.getElementById(
+            "urlaubstag"
+        );
 
 
     if (!urlaubstagElement) {
@@ -437,6 +543,7 @@ function aktualisiereUrlaubstag() {
 
     urlaubstagElement.textContent =
         ermittleUrlaubstag();
+
 }
 
 
@@ -451,6 +558,10 @@ function zeigeErinnerung() {
     }
 
 
+    /*
+       Sanft ausblenden.
+    */
+
     countdownBox.classList.add(
         "countdown-hidden"
     );
@@ -458,6 +569,16 @@ function zeigeErinnerung() {
 
     setTimeout(
         function () {
+
+            /*
+               Während der Wartezeit könnte das Element
+               theoretisch entfernt worden sein.
+            */
+
+            if (!countdownBox) {
+                return;
+            }
+
 
             countdownBox.innerHTML = `
 
@@ -496,6 +617,7 @@ function zeigeErinnerung() {
         },
         800
     );
+
 }
 
 
@@ -506,7 +628,9 @@ function zeigeErinnerung() {
 function starteReiseAnimation() {
 
     const celebration =
-        document.getElementById("celebration");
+        document.getElementById(
+            "celebration"
+        );
 
 
     if (!celebration) {
@@ -514,7 +638,8 @@ function starteReiseAnimation() {
     }
 
 
-    celebration.style.display = "flex";
+    celebration.style.display =
+        "flex";
 
 
     /* -------------------------------------------------
@@ -522,52 +647,85 @@ function starteReiseAnimation() {
     ------------------------------------------------- */
 
     const confetti =
-        document.getElementById("confetti");
+        document.getElementById(
+            "confetti"
+        );
 
 
     if (confetti) {
+
+        /*
+           Alte Konfetti-Elemente entfernen,
+           bevor neue erzeugt werden.
+        */
 
         confetti.innerHTML = "";
 
 
         const farben = [
-
             "#00d4ff",
             "#ffffff",
             "#ffe066",
             "#7cff7c",
             "#ff8ad8"
-
         ];
+
+
+        const anzahlKonfetti =
+            100;
 
 
         for (
             let i = 0;
-            i < 100;
+            i < anzahlKonfetti;
             i++
         ) {
 
             const piece =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
 
             piece.className =
                 "confetti";
 
 
-            piece.style.left =
-                Math.random() * 100 + "vw";
+            /*
+               Zufällige horizontale Position.
+            */
 
+            piece.style.left =
+                Math.random() *
+                100 +
+                "vw";
+
+
+            /*
+               Zufällige Fallgeschwindigkeit.
+            */
 
             piece.style.animationDuration =
                 (
-                    Math.random() * 3 + 3
-                ) + "s";
+                    Math.random() * 3 +
+                    3
+                ) +
+                "s";
 
+
+            /*
+               Zufälliger Startzeitpunkt.
+            */
 
             piece.style.animationDelay =
-                Math.random() * 2 + "s";
+                Math.random() *
+                2 +
+                "s";
 
+
+            /*
+               Zufällige Farbe.
+            */
 
             piece.style.backgroundColor =
                 farben[
@@ -578,11 +736,17 @@ function starteReiseAnimation() {
                 ];
 
 
+            /*
+               Zufällige Drehung.
+            */
+
             piece.style.transform =
                 `rotate(${Math.random() * 360}deg)`;
 
 
-            confetti.appendChild(piece);
+            confetti.appendChild(
+                piece
+            );
 
         }
 
@@ -594,10 +758,16 @@ function starteReiseAnimation() {
     ------------------------------------------------- */
 
     const plane =
-        document.getElementById("plane");
+        document.getElementById(
+            "plane"
+        );
 
 
     if (plane) {
+
+        /*
+           Vorherige Animation zurücksetzen.
+        */
 
         plane.style.animation =
             "none";
@@ -608,6 +778,11 @@ function starteReiseAnimation() {
         plane.style.opacity =
             "0";
 
+
+        /*
+           Browser bekommt kurz Zeit,
+           den Reset zu übernehmen.
+        */
 
         setTimeout(
             function () {
@@ -654,10 +829,10 @@ if (
                                 "show"
                             );
 
+
                             /*
-                               Nicht weiter beobachten,
-                               nachdem die Section sichtbar
-                               geworden ist.
+                               Section muss nicht mehr
+                               beobachtet werden.
                             */
 
                             beobachter.unobserve(
@@ -691,7 +866,7 @@ if (
 } else {
 
     /*
-       Fallback für ältere Browser
+       Fallback für ältere Browser.
     */
 
     elemente.forEach(
@@ -711,10 +886,20 @@ if (
    12. MEMORY-SLIDER
 ===================================================== */
 
+/*
+   Jeder .memory-slider arbeitet unabhängig.
+*/
+
 document
-    .querySelectorAll(".memory-slider")
+    .querySelectorAll(
+        ".memory-slider"
+    )
     .forEach(
         function (slider) {
+
+            /*
+               Bilder suchen.
+            */
 
             const bilder =
                 slider.querySelectorAll(
@@ -723,13 +908,17 @@ document
 
 
             /*
-               Es muss mindestens ein Bild geben.
+               Ohne Bilder gibt es nichts zu tun.
             */
 
             if (!bilder.length) {
                 return;
             }
 
+
+            /* -------------------------------------------------
+               BEDIENELEMENTE
+            ------------------------------------------------- */
 
             const pfeilLinks =
                 slider.querySelector(
@@ -744,10 +933,8 @@ document
 
 
             /*
-               Es können durch ältere HTML-Versionen
-               mehrere .memory-dots vorhanden sein.
-               Wir verwenden deshalb den ersten Container
-               und entfernen überzählige Container.
+               Es kann vorkommen, dass ältere HTML-Versionen
+               mehrere .memory-dots Container enthalten.
             */
 
             const dotsContaineren =
@@ -757,10 +944,14 @@ document
 
 
             let dotsContainer =
-                dotsContaineren.length
+                dotsContaineren.length > 0
                     ? dotsContaineren[0]
                     : null;
 
+
+            /*
+               Überzählige Dot-Container entfernen.
+            */
 
             if (
                 dotsContaineren.length > 1
@@ -787,9 +978,17 @@ document
 
             let timer = null;
 
+            let touchStartX = 0;
+
+            let touchEndX = 0;
+
 
             const wechselzeit =
                 5000;
+
+
+            const mindestDistanz =
+                50;
 
 
             /* -------------------------------------------------
@@ -802,6 +1001,10 @@ document
 
             bilder.forEach(
                 function (bild, index) {
+
+                    /*
+                       Alle Bilder übereinanderlegen.
+                    */
 
                     bild.style.position =
                         "absolute";
@@ -821,23 +1024,36 @@ document
                     bild.style.objectFit =
                         "contain";
 
+
+                    /*
+                       Nur das erste Bild sichtbar.
+                    */
+
+                    const aktiv =
+                        index === 0;
+
+
                     bild.style.opacity =
-                        index === 0
+                        aktiv
                             ? "1"
                             : "0";
 
+
                     bild.style.visibility =
-                        index === 0
+                        aktiv
                             ? "visible"
                             : "hidden";
 
+
                     bild.style.zIndex =
-                        index === 0
+                        aktiv
                             ? "2"
                             : "1";
 
+
                     bild.style.transition =
                         "opacity 0.6s ease";
+
 
                     bild.style.cursor =
                         "pointer";
@@ -845,12 +1061,15 @@ document
 
                     /*
                        Bild anklicken →
-                       großer Bild-Viewer
+                       großer Bild-Viewer.
                     */
 
                     bild.addEventListener(
                         "click",
-                        function () {
+                        function (event) {
+
+                            event.stopPropagation();
+
 
                             openImage(
                                 bild.currentSrc ||
@@ -883,6 +1102,10 @@ document
                             );
 
 
+                        /*
+                           Barrierefreiheit.
+                        */
+
                         punkt.setAttribute(
                             "aria-label",
                             "Bild " +
@@ -902,14 +1125,20 @@ document
                         );
 
 
+                        /*
+                           Mausklick.
+                        */
+
                         punkt.addEventListener(
                             "click",
                             function (event) {
 
                                 event.stopPropagation();
 
+
                                 aktuellesBild =
                                     index;
+
 
                                 zeigeBild();
 
@@ -918,6 +1147,11 @@ document
                             }
                         );
 
+
+                        /*
+                           Tastatur:
+                           Enter oder Leertaste.
+                        */
 
                         punkt.addEventListener(
                             "keydown",
@@ -932,8 +1166,12 @@ document
 
                                     event.preventDefault();
 
+                                    event.stopPropagation();
+
+
                                     aktuellesBild =
                                         index;
+
 
                                     zeigeBild();
 
@@ -955,7 +1193,11 @@ document
             }
 
 
-            let punkte =
+            /*
+               Punkte nach dem Erstellen erneut suchen.
+            */
+
+            const punkte =
                 dotsContainer
                     ? dotsContainer.querySelectorAll(
                         "span"
@@ -999,7 +1241,7 @@ document
 
 
                 /*
-                   Aktiven Punkt markieren
+                   Aktiven Punkt markieren.
                 */
 
                 punkte.forEach(
@@ -1026,16 +1268,19 @@ document
 
             function naechstesBild() {
 
-                aktuellesBild++;
-
                 if (
-                    aktuellesBild >=
-                    bilder.length
+                    bilder.length <= 1
                 ) {
-
-                    aktuellesBild = 0;
-
+                    return;
                 }
+
+
+                aktuellesBild =
+                    (
+                        aktuellesBild + 1
+                    ) %
+                    bilder.length;
+
 
                 zeigeBild();
 
@@ -1048,16 +1293,21 @@ document
 
             function vorherigesBild() {
 
-                aktuellesBild--;
-
                 if (
-                    aktuellesBild < 0
+                    bilder.length <= 1
                 ) {
-
-                    aktuellesBild =
-                        bilder.length - 1;
-
+                    return;
                 }
+
+
+                aktuellesBild =
+                    (
+                        aktuellesBild -
+                        1 +
+                        bilder.length
+                    ) %
+                    bilder.length;
+
 
                 zeigeBild();
 
@@ -1071,25 +1321,20 @@ document
             function starteSlider() {
 
                 /*
-                   Alten Timer löschen
+                   Alten Timer immer zuerst löschen.
                 */
 
-                if (timer) {
-
-                    clearInterval(timer);
-
-                }
+                stoppeSlider();
 
 
                 /*
-                   Bei nur einem Bild
+                   Bei einem einzigen Bild
                    keinen Timer starten.
                 */
 
                 if (
                     bilder.length <= 1
                 ) {
-
                     return;
                 }
 
@@ -1113,7 +1358,7 @@ document
 
             function stoppeSlider() {
 
-                if (timer) {
+                if (timer !== null) {
 
                     clearInterval(timer);
 
@@ -1134,7 +1379,10 @@ document
                     "click",
                     function (event) {
 
+                        event.preventDefault();
+
                         event.stopPropagation();
+
 
                         vorherigesBild();
 
@@ -1156,7 +1404,10 @@ document
                     "click",
                     function (event) {
 
+                        event.preventDefault();
+
                         event.stopPropagation();
+
 
                         naechstesBild();
 
@@ -1172,6 +1423,10 @@ document
                TASTATURSTEUERUNG
             ------------------------------------------------- */
 
+            /*
+               Slider kann per Tastatur fokussiert werden.
+            */
+
             slider.setAttribute(
                 "tabindex",
                 "0"
@@ -1183,9 +1438,8 @@ document
                 function (event) {
 
                     /*
-                       Wenn der Bild-Viewer offen ist,
-                       soll der Slider keine Pfeile
-                       verarbeiten.
+                       Wenn der große Bild-Viewer offen ist,
+                       soll der Slider keine Pfeile verarbeiten.
                     */
 
                     if (
@@ -1205,6 +1459,7 @@ document
 
                         event.preventDefault();
 
+
                         naechstesBild();
 
                         starteSlider();
@@ -1218,6 +1473,7 @@ document
                     ) {
 
                         event.preventDefault();
+
 
                         vorherigesBild();
 
@@ -1257,11 +1513,6 @@ document
                TOUCH / MOBILE
             ------------------------------------------------- */
 
-            let touchStartX = 0;
-
-            let touchEndX = 0;
-
-
             slider.addEventListener(
                 "touchstart",
                 function (event) {
@@ -1269,13 +1520,20 @@ document
                     if (
                         event.touches.length !== 1
                     ) {
-
                         return;
                     }
 
 
                     touchStartX =
                         event.touches[0].clientX;
+
+
+                    /*
+                       Automatik während des Wischens
+                       kurz pausieren.
+                    */
+
+                    stoppeSlider();
 
                 },
                 {
@@ -1292,6 +1550,8 @@ document
                         event.changedTouches.length !== 1
                     ) {
 
+                        starteSlider();
+
                         return;
                     }
 
@@ -1305,9 +1565,10 @@ document
                         touchStartX;
 
 
-                    const mindestDistanz =
-                        50;
-
+                    /*
+                       Nur bei einem ausreichend großen
+                       horizontalen Wisch wechseln.
+                    */
 
                     if (
                         Math.abs(differenz) >=
@@ -1326,9 +1587,27 @@ document
 
                         }
 
-                        starteSlider();
-
                     }
+
+
+                    starteSlider();
+
+                },
+                {
+                    passive: true
+                }
+            );
+
+
+            /* -------------------------------------------------
+               TOUCH ABBRUCH
+            ------------------------------------------------- */
+
+            slider.addEventListener(
+                "touchcancel",
+                function () {
+
+                    starteSlider();
 
                 },
                 {
@@ -1354,9 +1633,9 @@ document
 ===================================================== */
 
 /*
-   Falls closeImage() direkt über onclick=""
-   im HTML aufgerufen wird, stellen wir sicher,
-   dass die Funktion global erreichbar bleibt.
+   Damit auch onclick="openImage(...)"
+   oder onclick="closeImage()"
+   im HTML funktionieren.
 */
 
 window.openImage =
@@ -1370,9 +1649,18 @@ window.closeImage =
    14. START
 ===================================================== */
 
+/*
+   Countdown sofort starten.
+*/
+
 if (countdownBox) {
 
     countdown();
+
+
+    /*
+       Jede Sekunde aktualisieren.
+    */
 
     setInterval(
         countdown,
@@ -1383,22 +1671,5 @@ if (countdownBox) {
 
 
 /* =====================================================
-   15. BILD-VIEWER BEI ESC / BODY
+   ENDE
 ===================================================== */
-
-document.addEventListener(
-    "keydown",
-    function (event) {
-
-        if (
-            event.key === "Escape" &&
-            imageViewer &&
-            imageViewer.style.display === "flex"
-        ) {
-
-            closeImage();
-
-        }
-
-    }
-);
